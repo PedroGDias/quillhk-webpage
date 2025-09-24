@@ -11,7 +11,7 @@ export const Header = ({ onJoinWaitlist }: HeaderProps) => {
   const buttonsAnimation = useScrollAnimation({ delay: 150 });
 
   return (
-    <header className="w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 border-b border-border/40 relative overflow-hidden">
+    <header className="hidden sm:block w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 border-b border-border/40 relative overflow-hidden">
       {/* Subtle corner gradient bloom */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>
@@ -38,7 +38,7 @@ export const Header = ({ onJoinWaitlist }: HeaderProps) => {
                 size="sm"
                 className="text-xs sm:text-sm px-3 sm:px-4"
               >
-                Get Your Free Guide
+                Join Waitlist
               </Button>
               <Button 
                 asChild

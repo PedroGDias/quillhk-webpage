@@ -37,8 +37,7 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
             
             <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Join professionals using Crafted to create engaging LinkedIn content<br className="hidden sm:block" />
-                <span className="sm:hidden"> </span>that drives results.
+                Start with our free LinkedIn guide below to know how top performers and execs are growing on LinkedIn today.
               </p>
             </div>
             
@@ -47,15 +46,15 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
                 <Button 
                   size="lg" 
                   onClick={onJoinWaitlist}
-                  className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto sm:max-w-48"
+                  className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto"
                 >
-                  Get Your Free Guide
+                  Get LinkedIn Essentials Guide
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg" 
                   asChild
-                  className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto sm:max-w-48"
+                  className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto"
                 >
                   <a 
                     href="https://calendly.com/underdogfounders/30min" 
