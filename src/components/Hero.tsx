@@ -65,7 +65,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
               <img 
                 src={heroImage} 
                 alt="Crafted mobile app illustration showing LinkedIn content creation"
-                className="w-full max-w-sm lg:max-w-md h-auto"
+                className="w-full max-w-xs lg:max-w-sm h-auto"
               />
             </div>
           </div>
