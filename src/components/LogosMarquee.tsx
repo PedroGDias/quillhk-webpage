@@ -42,7 +42,7 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
       <div className="container mx-auto px-32">
         <div className="flex flex-col items-center">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-xs font-normal text-center text-muted-foreground mb-0.5">
+            <h2 className="text-sm font-medium text-center text-muted-foreground mb-0.5">
               Personal brands using our software and 1:1 mentoring
             </h2>
           </div>
