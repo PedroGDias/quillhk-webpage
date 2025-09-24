@@ -130,6 +130,10 @@ All colors MUST be HSL.
     animation: scroll 20s linear infinite;
   }
   
+  .animate-scroll-mobile {
+    animation: scroll-mobile 15s linear infinite;
+  }
+  
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -168,7 +172,7 @@ All colors MUST be HSL.
   .scroll-snap-section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    height: 100vh; /* Ensure each section takes full viewport height */
+    min-height: 100vh; /* Use min-height instead of fixed height */
   }
 
   /* Mobile-specific scroll snap improvements */
@@ -180,7 +184,8 @@ All colors MUST be HSL.
     .scroll-snap-section {
       scroll-snap-align: start;
       scroll-snap-stop: normal; /* Allow faster scrolling on mobile */
-      height: 100vh; /* Force full height on mobile */
+      min-height: 100vh; /* Use min-height for better mobile UX */
+      height: auto; /* Allow natural height on mobile */
     }
   }
 
@@ -227,6 +232,15 @@ All colors MUST be HSL.
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-mobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
   }
 }
 

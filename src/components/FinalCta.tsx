@@ -15,7 +15,7 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="h-screen flex flex-col relative overflow-hidden">
+    <section className="min-h-screen flex flex-col relative overflow-hidden py-8 sm:py-0">
       {/* Subtle corner gradient bloom */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>

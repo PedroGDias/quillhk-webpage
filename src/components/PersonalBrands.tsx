@@ -85,11 +85,11 @@ export const PersonalBrands = ({ brands = defaultBrands }: PersonalBrandsProps) 
   const logosAnimation = useScrollAnimation({ delay: 250 });
   const [isHovered, setIsHovered] = useState(false);
 
-  // Duplicate brands multiple times for seamless continuous rotation
-  const duplicatedBrands = [...brands, ...brands, ...brands];
+  // Duplicate brands many times for truly seamless infinite scroll
+  const duplicatedBrands = [...brands, ...brands, ...brands, ...brands, ...brands];
 
   return (
-    <section className="h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-8 sm:py-0">
       {/* Subtle corner gradient bloom */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>
@@ -104,34 +104,38 @@ export const PersonalBrands = ({ brands = defaultBrands }: PersonalBrandsProps) 
           </div>
           
           <div ref={logosAnimation.ref} className={logosAnimation.className}>
-            {/* Mobile: Grid layout */}
-            <div className="grid grid-cols-3 gap-4 sm:hidden max-w-4xl mx-auto">
-              {brands.map((brand, index) => {
-                const brandAnimation = useScrollAnimation({ delay: 200 + (index * 100) });
-                return (
+            {/* Mobile: Carousel with 3 visible items */}
+            <div 
+              className="sm:hidden overflow-hidden max-w-sm mx-auto"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <div 
+                className={`flex gap-4 ${
+                  isHovered ? 'pause' : 'animate-scroll-mobile'
+                }`}
+              >
+                {duplicatedBrands.map((brand, index) => (
                   <div 
-                    key={index}
-                    ref={brandAnimation.ref} 
-                    className={brandAnimation.className}
+                    key={`mobile-${brand.name}-${index}`}
+                    className="flex-shrink-0 flex flex-col items-center text-center min-w-0 w-24"
                   >
-                    <div className="flex flex-col items-center text-center min-w-0">
-                      <div className="w-8 h-8 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-1">
-                        <img 
-                          src={brand.logoSrc} 
-                          alt={`${brand.company} logo`}
-                          className="w-7 h-7 object-cover rounded-md scale-110"
-                        />
-                      </div>
-                      <h3 className="font-bold text-foreground text-xs mb-0 leading-tight">
-                        {brand.name}
-                      </h3>
-                      <p className="text-[9px] text-muted-foreground leading-tight">
-                        {brand.role}, {brand.company}
-                      </p>
+                    <div className="w-8 h-8 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-1">
+                      <img 
+                        src={brand.logoSrc} 
+                        alt={`${brand.company} logo`}
+                        className="w-7 h-7 object-cover rounded-md scale-110"
+                      />
                     </div>
+                    <h3 className="font-bold text-foreground text-xs mb-0 leading-tight">
+                      {brand.name}
+                    </h3>
+                    <p className="text-[9px] text-muted-foreground leading-tight">
+                      {brand.role}, {brand.company}
+                    </p>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
 
             {/* Desktop: Moving carousel */}
@@ -147,7 +151,7 @@ export const PersonalBrands = ({ brands = defaultBrands }: PersonalBrandsProps) 
               >
                 {duplicatedBrands.map((brand, index) => (
                   <div 
-                    key={`${brand.name}-${index}`}
+                    key={`desktop-${brand.name}-${index}`}
                     className="flex-shrink-0 flex flex-col items-center text-center min-w-0"
                   >
                     <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-1">
