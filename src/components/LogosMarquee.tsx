@@ -42,7 +42,7 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
       <div className="container mx-auto px-32">
         <div className="flex flex-col items-center">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-xl sm:text-2xl font-semibold text-center text-foreground mb-2">
+            <h2 className="text-xl sm:text-2xl font-semibold text-center text-foreground mb-0.5">
               Personal brands using our software and 1:1 mentoring
             </h2>
           </div>
@@ -57,14 +57,14 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
                   className={brandAnimation.className}
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-1">
+                    <div className="w-16 h-16 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-0.5">
                       <img 
                         src={brand.logoSrc} 
                         alt={`${brand.company} logo`}
                         className="w-12 h-12 object-contain rounded-md"
                       />
                     </div>
-                    <h3 className="font-bold text-foreground text-sm mb-1">
+                    <h3 className="font-bold text-foreground text-sm mb-0">
                       {brand.name}
                     </h3>
                     <p className="text-xs text-muted-foreground">
