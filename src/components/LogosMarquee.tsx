@@ -1,23 +1,40 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import sybillLogo from "@/assets/sybill-logo.jpg";
+import yulifeLogo from "@/assets/yulife-logo.webp";
 
-interface LogoItem {
+interface PersonBrand {
+  name: string;
+  role: string;
+  company: string;
   logoSrc: string;
-  caption: string;
 }
 
 interface LogosMarqueeProps {
-  logos?: LogoItem[];
+  brands?: PersonBrand[];
 }
 
-const defaultLogos: LogoItem[] = [
-  { logoSrc: "/placeholder.svg", caption: "Co-Founder, Sybill" },
-  { logoSrc: "/placeholder.svg", caption: "Founding PM, TechCorp" },
-  { logoSrc: "/placeholder.svg", caption: "VP of Sales, StartupXYZ" },
-  { logoSrc: "/placeholder.svg", caption: "CEO, InnovateNow" },
-  { logoSrc: "/placeholder.svg", caption: "Director, GrowthLab" },
+const defaultBrands: PersonBrand[] = [
+  { 
+    name: "Nishit Asnani", 
+    role: "Co-Founder", 
+    company: "Sybill", 
+    logoSrc: sybillLogo 
+  },
+  { 
+    name: "Dany Jradi", 
+    role: "Founding PM", 
+    company: "Sybill", 
+    logoSrc: sybillLogo 
+  },
+  { 
+    name: "Lewis Stock", 
+    role: "VP of Sales", 
+    company: "YuLife", 
+    logoSrc: yulifeLogo 
+  },
 ];
 
-export const LogosMarquee = ({ logos = defaultLogos }: LogosMarqueeProps) => {
+export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
   const titleAnimation = useScrollAnimation();
 
   return (
@@ -29,26 +46,32 @@ export const LogosMarquee = ({ logos = defaultLogos }: LogosMarqueeProps) => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 justify-items-center max-w-4xl mx-auto">
-          {logos.map((logo, index) => {
-            const logoAnimation = useScrollAnimation({ delay: 200 + (index * 100) });
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center max-w-4xl mx-auto">
+          {brands.map((brand, index) => {
+            const brandAnimation = useScrollAnimation({ delay: 200 + (index * 100) });
             return (
               <div 
                 key={index}
-                ref={logoAnimation.ref} 
-                className={logoAnimation.className}
+                ref={brandAnimation.ref} 
+                className={brandAnimation.className}
               >
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center overflow-hidden">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-3">
                     <img 
-                      src={logo.logoSrc} 
-                      alt={`${logo.caption} logo`}
-                      className="w-10 h-10 object-contain"
+                      src={brand.logoSrc} 
+                      alt={`${brand.company} logo`}
+                      className="w-12 h-12 object-contain rounded-md"
                     />
                   </div>
-                  <span className="text-xs text-muted-foreground mt-2 text-center">
-                    {logo.caption}
-                  </span>
+                  <h3 className="font-bold text-foreground text-sm mb-1">
+                    {brand.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    {brand.role}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {brand.company}
+                  </p>
                 </div>
               </div>
             );
