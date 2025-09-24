@@ -37,10 +37,6 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
 
     // INSTANT SUCCESS - Show success immediately
     setIsSuccess(true);
-    toast({
-      title: "Welcome to the waitlist!",
-      description: "Check your inbox for your LinkedIn guide.",
-    });
 
     // Run email sending in background (don't wait for it)
     (async () => {

@@ -16,53 +16,54 @@ function generateEmailHTML(name?: string): string {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your LinkedIn guide is here! 🚀</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
       </head>
-      <body style="margin: 0; padding: 0; background-color: #f6f9fc; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-        <div style="background-color: #ffffff; margin: 0 auto; padding: 20px 0 48px; margin-bottom: 64px; border-radius: 16px; max-width: 600px;">
+      <body style="margin: 0; padding: 0; background-color: #f6f9fc; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+        <div style="background-color: #ffffff; margin: 0 auto; padding: 20px 0 48px; margin-bottom: 64px; border-radius: 16px; max-width: 600px; box-shadow: 0 4px 12px rgba(21, 125, 200, 0.05);">
           <div style="padding: 32px 20px 0; text-align: center;">
-            <div style="color: #1d4ed8; font-size: 24px; font-weight: 700; margin: 0;">Crafted</div>
+            <div style="color: #157dc8; font-size: 24px; font-weight: 300; margin: 0; letter-spacing: -0.06em;">Crafted</div>
           </div>
           
-          <h1 style="color: #333; font-size: 24px; font-weight: 700; margin: 32px 20px 16px; text-align: center;">
+          <h1 style="color: #333; font-size: 28px; font-weight: 800; margin: 32px 20px 16px; text-align: center; letter-spacing: -0.05em;">
             Your LinkedIn guide is here! 🚀
           </h1>
           
-          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px;">
+          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
             ${name ? `Hi ${name},` : 'Hi there,'}
           </p>
           
-          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px;">
+          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
             Thanks for joining our waitlist! As promised, here's your copy of 
             "The 5 Principles for Magnetic LinkedIn Leadership" - the same framework 
             our clients use to transform their LinkedIn presence.
           </p>
           
-          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px;">
+          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
             This guide reveals how industry leaders create compelling content that 
             attracts both clients and top talent, without spending hours writing posts.
           </p>
           
           <div style="text-align: center; margin: 32px 0;">
-            <a href="https://ignite-lead-drive.vercel.app/guides/crafted-5-principles.pdf" 
-               style="background-color: #1d4ed8; border-radius: 8px; color: #fff; font-size: 16px; font-weight: 600; text-decoration: none; text-align: center; display: inline-block; padding: 12px 24px; margin: 0 auto;">
+            <a href="https://ignite-lead-drive.vercel.app/guides/crafted-welcome-guide.pdf" 
+               style="background-color: #157dc8; border-radius: 8px; color: #fff; font-size: 16px; font-weight: 600; text-decoration: none; text-align: center; display: inline-block; padding: 12px 24px; margin: 0 auto; font-family: 'Inter', sans-serif;">
               Download Your Guide
             </a>
           </div>
           
-          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px;">
-            Ready to put these principles into action? Book a free strategy call 
+          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
+            Ready to put these principles into action? Book a demo 
             to see how Crafted can help you implement these strategies with our 
             AI-powered content system and 1:1 mentoring.
           </p>
           
           <div style="text-align: center; margin: 32px 0;">
             <a href="https://calendly.com/underdogfounders/30min" 
-               style="background-color: transparent; border: 2px solid #1d4ed8; border-radius: 8px; color: #1d4ed8; font-size: 16px; font-weight: 600; text-decoration: none; text-align: center; display: inline-block; padding: 10px 22px; margin: 0 auto;">
-              Book a Free Strategy Call
+               style="background-color: #157dc8; border-radius: 8px; color: #fff; font-size: 16px; font-weight: 600; text-decoration: none; text-align: center; display: inline-block; padding: 12px 24px; margin: 0 auto; font-family: 'Inter', sans-serif;">
+              Book a Demo
             </a>
           </div>
           
-          <p style="color: #666; font-size: 14px; line-height: 24px; margin: 32px 20px 0;">
+          <p style="color: #666; font-size: 14px; line-height: 24px; margin: 32px 20px 0; font-weight: 400;">
             Best regards,<br />
             The Crafted Team
           </p>
@@ -89,19 +90,11 @@ async function sendWelcomeEmail(email: string, name?: string) {
     const audienceId = Deno.env.get("RESEND_AUDIENCE_ID");
     console.log("Audience ID value:", audienceId);
     
-    // Debug: Log what's available on the resend object
-    console.log("Resend object keys:", Object.keys(resend));
-    console.log("Resend object:", resend);
-    
     if (audienceId) {
       console.log("Attempting to add contact to Resend audience...");
       try {
-        // Try the correct Resend API structure - it should be resend.contacts.create
-        // But first let's see if contacts exists
-        console.log("resend.contacts:", resend.contacts);
-        
-        // Use HTTP request directly if the SDK doesn't work
-        const response = await fetch('https://api.resend.com/contacts', {
+        // Use direct HTTP API call with correct endpoint format
+        const response = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${Deno.env.get("RESEND_API_KEY")}`,
@@ -109,8 +102,8 @@ async function sendWelcomeEmail(email: string, name?: string) {
           },
           body: JSON.stringify({
             email: email,
-            first_name: name || undefined,
-            audience_id: audienceId,
+            firstName: name || undefined,
+            unsubscribed: false,
           }),
         });
 
@@ -148,8 +141,8 @@ async function sendWelcomeEmail(email: string, name?: string) {
       html: emailHtml,
       attachments: [
         {
-          filename: "5-principles-magnetic-linkedin-leadership.pdf",
-          path: "https://ignite-lead-drive.vercel.app/guides/crafted-5-principles.pdf",
+          filename: "Crafted - Lead Magnet 01.pdf",
+          path: "https://ignite-lead-drive.vercel.app/guides/crafted-welcome-guide.pdf",
         },
       ],
     });
