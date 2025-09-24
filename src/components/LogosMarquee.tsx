@@ -64,10 +64,10 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
                         className="w-12 h-12 object-contain rounded-md"
                       />
                     </div>
-                    <h3 className="font-bold text-foreground text-sm mb-0">
+                    <h3 className="font-bold text-foreground text-xs mb-0">
                       {brand.name}
                     </h3>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-[10px] text-muted-foreground">
                       {brand.role}, {brand.company}
                     </p>
                   </div>
