@@ -39,36 +39,29 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
     setIsLoading(true);
 
     try {
+      setIsLoading(true);
+      
+      // Call the edge function but don't wait for it to complete
       const { supabase } = await import("@/integrations/supabase/client");
       
-      const { data, error } = await supabase.functions.invoke('join-waitlist', {
+      // Fire and forget - don't await the response
+      supabase.functions.invoke('join-waitlist', {
         body: {
           name: name.trim() || undefined,
           email: email.trim(),
         },
       });
 
-      if (error) {
-        throw new Error(error.message);
-      }
-
-      if (data.ok) {
-        setIsSuccess(true);
-        toast({
-          title: "Welcome to the waitlist!",
-          description: "Check your inbox for your LinkedIn guide.",
-        });
-      } else {
-        toast({
-          title: "Something went wrong",
-          description: data.message || "Please try again later.",
-          variant: "destructive",
-        });
-      }
+      // Show success immediately
+      setIsSuccess(true);
+      toast({
+        title: "Welcome to the waitlist!",
+        description: "Check your inbox for your LinkedIn guide.",
+      });
     } catch (error) {
       toast({
-        title: "Connection error",
-        description: "Please check your connection and try again.",
+        title: "Something went wrong",
+        description: "Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -153,16 +146,6 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
             </div>
             
             <div className="space-y-3">
-              <Button asChild className="w-full">
-                <a 
-                  href="/guides/linkedin-guide.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  Open Guide
-                </a>
-              </Button>
-              
               <Button variant="outline" asChild className="w-full">
                 <a 
                   href="https://calendly.com/underdogfounders/30min" 
