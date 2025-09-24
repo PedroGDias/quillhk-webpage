@@ -17,7 +17,7 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
       
-      <div className="container mx-auto px-16 relative">
+      <div className="container mx-auto px-32 relative">
         <div className="text-center space-y-8 max-w-4xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">

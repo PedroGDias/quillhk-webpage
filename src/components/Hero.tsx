@@ -14,7 +14,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
 
   return (
     <section className="py-16 lg:py-24">
-      <div className="container mx-auto px-16">
+      <div className="container mx-auto px-32">
         <div className="grid lg:grid-cols-[4fr_1.5fr] gap-2 lg:gap-4 items-center">
           <div className="space-y-8">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>

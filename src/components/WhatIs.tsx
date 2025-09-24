@@ -9,7 +9,7 @@ export const WhatIs = () => {
 
   return (
     <section className="py-16 lg:py-24 bg-gradient-subtle">
-      <div className="container mx-auto px-16">
+      <div className="container mx-auto px-32">
         <div className="text-center mb-16">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
