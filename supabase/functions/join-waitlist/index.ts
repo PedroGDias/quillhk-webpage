@@ -34,12 +34,14 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Adding contact to Resend audience:", email);
 
-    // Add contact to Resend audience
+    // Add contact to Resend audience (you'll need to replace with your actual audience ID)
+    // For now, we'll skip audience addition and just send the email
+    /*
     try {
       const audienceResponse = await resend.contacts.create({
         email: email,
         firstName: name || undefined,
-        audienceId: "78c1a4a5-9b7a-4b9e-8c1c-2d3e4f5g6h7i", // Replace with your actual audience ID
+        audienceId: "your-actual-audience-id-here", // Replace with your actual audience ID
       });
       
       console.log("Contact added to audience:", audienceResponse);
@@ -47,16 +49,24 @@ const handler = async (req: Request): Promise<Response> => {
       console.error("Error adding to audience:", audienceError);
       // Continue with email sending even if audience addition fails
     }
+    */
 
-    // Read PDF file
-    const pdfResponse = await fetch("https://bcxuphfuohongtfczsbw.supabase.co/storage/v1/object/public/guides/linkedin-guide.pdf");
+    // Send welcome email with PDF attachment from public folder
+    const pdfUrl = "https://bcxuphfuohongtfczsbw.supabase.co/storage/v1/object/public/guides/linkedin-guide.pdf";
+    console.log("Attempting to fetch PDF from:", pdfUrl);
     
-    if (!pdfResponse.ok) {
-      console.error("Failed to fetch PDF:", pdfResponse.status);
-      // Send email without attachment if PDF fetch fails
+    let pdfBuffer = null;
+    try {
+      const pdfResponse = await fetch(pdfUrl);
+      if (pdfResponse.ok) {
+        pdfBuffer = await pdfResponse.arrayBuffer();
+        console.log("PDF fetched successfully, size:", pdfBuffer.byteLength);
+      } else {
+        console.log("PDF fetch failed with status:", pdfResponse.status);
+      }
+    } catch (pdfError) {
+      console.error("Error fetching PDF:", pdfError);
     }
-
-    const pdfBuffer = pdfResponse.ok ? await pdfResponse.arrayBuffer() : null;
 
     // Send welcome email with PDF attachment
     const emailData: any = {
