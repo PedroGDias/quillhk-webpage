@@ -37,7 +37,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
                 <Button 
                   size="lg" 
                   onClick={onJoinWaitlist}
-                  className="text-base font-semibold"
+                  className="text-base font-semibold px-6"
                 >
                   Join Waitlist
                 </Button>
@@ -45,7 +45,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
                   variant="outline" 
                   size="lg" 
                   asChild
-                  className="text-base font-semibold"
+                  className="text-base font-semibold px-6"
                 >
                   <a 
                     href="https://calendly.com/underdogfounders/30min" 

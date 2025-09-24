@@ -57,11 +57,11 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
                   className={brandAnimation.className}
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-0.5">
+                    <div className="w-12 h-12 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-0.5">
                       <img 
                         src={brand.logoSrc} 
                         alt={`${brand.company} logo`}
-                        className="w-12 h-12 object-contain rounded-md"
+                        className="w-10 h-10 object-cover rounded-md scale-110"
                       />
                     </div>
                     <h3 className="font-bold text-foreground text-xs mb-0">

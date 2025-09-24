@@ -36,27 +36,13 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
           </div>
           
           <div ref={buttonsAnimation.ref} className={buttonsAnimation.className}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button 
                 size="lg" 
                 onClick={onJoinWaitlist}
-                className="text-base font-semibold px-8"
+                className="text-base font-semibold px-6"
               >
                 Get Started Today
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                asChild
-                className="text-base font-semibold"
-              >
-                <a 
-                  href="https://calendly.com/underdogfounders/30min" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  Book a Demo
-                </a>
               </Button>
             </div>
           </div>
