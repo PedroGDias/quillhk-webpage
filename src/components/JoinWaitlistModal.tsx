@@ -41,24 +41,42 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
     try {
       setIsLoading(true);
       
-      // Call the edge function but don't wait for it to complete
+      // Call the edge function and wait for response
       const { supabase } = await import("@/integrations/supabase/client");
       
-      // Fire and forget - don't await the response
-      supabase.functions.invoke('join-waitlist', {
+      const { data, error } = await supabase.functions.invoke('join-waitlist', {
         body: {
           name: name.trim() || undefined,
           email: email.trim(),
         },
       });
 
-      // Show success immediately
-      setIsSuccess(true);
-      toast({
-        title: "Welcome to the waitlist!",
-        description: "Check your inbox for your LinkedIn guide.",
-      });
+      if (error) {
+        console.error('Supabase function error:', error);
+        toast({
+          title: "Something went wrong",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (data?.ok) {
+        // Show success
+        setIsSuccess(true);
+        toast({
+          title: "Welcome to the waitlist!",
+          description: "Check your inbox for your LinkedIn guide.",
+        });
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: data?.message || "Please try again later.",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
+      console.error('Unexpected error:', error);
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
@@ -85,7 +103,7 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
             <DialogHeader>
               <DialogTitle>Join the Waitlist</DialogTitle>
               <DialogDescription>
-                Join the waitlist — we'll instantly email you our PDF guide: 
+                Join the waitlist - we'll instantly email you our PDF guide: 
                 The 5 Principles for magnetic LinkedIn leadership.
               </DialogDescription>
             </DialogHeader>
@@ -135,18 +153,18 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
         ) : (
           <div className="text-center space-y-6 py-4">
             <div className="flex justify-center">
-              <CheckCircle className="w-16 h-16 text-green-500" />
+              <CheckCircle className="w-16 h-16" style={{ color: '#157dc8' }} />
             </div>
             
             <div className="space-y-2">
               <DialogTitle>Check your inbox!</DialogTitle>
               <DialogDescription>
-                Your guide is on the way. You should receive it within the next few minutes.
+                Your guide is on the way.<br />You should receive it within the next few minutes.
               </DialogDescription>
             </div>
             
             <div className="space-y-3">
-              <Button variant="outline" asChild className="w-full">
+              <Button asChild>
                 <a 
                   href="https://calendly.com/underdogfounders/30min" 
                   target="_blank" 

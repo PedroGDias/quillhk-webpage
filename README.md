@@ -117,11 +117,9 @@ The app can be deployed to any static hosting platform. The PDF guide is served 
 
 ---
 
-## Original Lovable Project Info
+## Project Info
 
-**URL**: https://lovable.dev/projects/049dad50-564d-4a09-b33c-b8a4dc8c6474
-
-This project was bootstrapped with Lovable and uses:
+This project uses:
 - Vite
 - TypeScript  
 - React

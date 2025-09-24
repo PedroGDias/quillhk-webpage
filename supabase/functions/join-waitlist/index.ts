@@ -1,5 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
+import { render } from "npm:@react-email/render@0.0.12";
+import GuideEmail from "../../src/emails/GuideEmail.tsx";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -16,61 +18,41 @@ interface JoinWaitlistRequest {
 async function sendWelcomeEmail(email: string, name?: string) {
   try {
     console.log("Starting email process for:", email);
+    console.log("RESEND_API_KEY exists:", !!Deno.env.get("RESEND_API_KEY"));
+    console.log("RESEND_AUDIENCE_ID exists:", !!Deno.env.get("RESEND_AUDIENCE_ID"));
 
     // Add to Resend audience if ID is provided
     const audienceId = Deno.env.get("RESEND_AUDIENCE_ID");
+    console.log("Audience ID:", audienceId);
     if (audienceId) {
       try {
-        await resend.contacts.create({
+        const audienceResponse = await resend.contacts.create({
           email: email,
           firstName: name || undefined,
           audienceId: audienceId,
         });
-        console.log("Contact added to audience successfully");
+        console.log("Contact added to audience successfully:", audienceResponse);
       } catch (audienceError) {
         console.error("Audience addition failed:", audienceError);
+        console.error("Audience error details:", JSON.stringify(audienceError, null, 2));
       }
+    } else {
+      console.log("No audience ID provided, skipping audience addition");
     }
+
+    // Render the React email component
+    const emailHtml = await render(GuideEmail({ name }));
 
     // Send email
     const emailResponse = await resend.emails.send({
-      from: "Crafted <onboarding@resend.dev>",
+      from: "Crafted <welcome@noreply.gocrafted.com>",
       to: [email],
       subject: "Welcome to Crafted - Your LinkedIn Guide is Here!",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #333;">Welcome to Crafted${name ? `, ${name}` : ''}!</h1>
-          
-          <p>Thank you for joining our waitlist. We're excited to help you craft your magnetic LinkedIn leadership presence.</p>
-          
-          <p>Your guide "<strong>The 5 Principles for Magnetic LinkedIn Leadership</strong>" is attached to this email.</p>
-          
-          <p>This comprehensive guide will help you:</p>
-          <ul>
-            <li>Build authentic leadership presence on LinkedIn</li>
-            <li>Create content that resonates with your audience</li>
-            <li>Establish yourself as a thought leader in your industry</li>
-            <li>Drive meaningful engagement and connections</li>
-          </ul>
-          
-          <p>Ready to take your LinkedIn presence to the next level? Book a strategy call with our team:</p>
-          
-          <div style="margin: 30px 0;">
-            <a href="https://calendly.com/underdogfounders/30min" 
-               style="background-color: #0066cc; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">
-              Book Your Strategy Call
-            </a>
-          </div>
-          
-          <p>We'll be in touch soon with more insights and updates about the Crafted platform.</p>
-          
-          <p>Best regards,<br>The Crafted Team</p>
-        </div>
-      `,
+      html: emailHtml,
       attachments: [
         {
           filename: "5-principles-magnetic-linkedin-leadership.pdf",
-          path: "https://049dad50-564d-4a09-b33c-b8a4dc8c6474.lovableproject.com/guides/linkedin-guide.pdf",
+          path: "https://ignite-lead-drive.vercel.app/guides/crafted-5-principles.pdf",
         },
       ],
     });
@@ -78,6 +60,7 @@ async function sendWelcomeEmail(email: string, name?: string) {
     console.log("Email sent successfully:", emailResponse);
   } catch (error) {
     console.error("Background email task failed:", error);
+    console.error("Error details:", JSON.stringify(error, null, 2));
   }
 }
 

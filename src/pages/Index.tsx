@@ -5,7 +5,6 @@ import { LogosMarquee } from "@/components/LogosMarquee";
 import { WhatIs } from "@/components/WhatIs";
 import { Results } from "@/components/Results";
 import { FinalCta } from "@/components/FinalCta";
-import { Footer } from "@/components/Footer";
 import { JoinWaitlistModal } from "@/components/JoinWaitlistModal";
 
 const Index = () => {
@@ -16,18 +15,24 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header onJoinWaitlist={handleJoinWaitlist} />
-      
-      <main>
+    <div className="scroll-snap-container bg-background">
+      <div className="h-screen flex flex-col scroll-snap-section">
+        <Header onJoinWaitlist={handleJoinWaitlist} />
         <Hero onJoinWaitlist={handleJoinWaitlist} />
         <LogosMarquee />
-        <WhatIs />
-        <Results />
-        <FinalCta onJoinWaitlist={handleJoinWaitlist} />
-      </main>
+      </div>
       
-      <Footer />
+      <main>
+        <div className="scroll-snap-section">
+          <WhatIs />
+        </div>
+        <div className="scroll-snap-section">
+          <Results />
+        </div>
+        <div className="scroll-snap-section">
+          <FinalCta onJoinWaitlist={handleJoinWaitlist} />
+        </div>
+      </main>
       
       <JoinWaitlistModal 
         open={isWaitlistModalOpen}

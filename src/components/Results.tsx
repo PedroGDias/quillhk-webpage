@@ -24,11 +24,16 @@ export const Results = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24">
-      <div className="container mx-auto px-32">
+    <section className="h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Subtle corner gradient bloom */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
+      <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-8 lg:px-16 relative">
         <div className="text-center mb-16">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-ultra-thick">
               Real results for <span className="text-gradient">teams like yours</span>
             </h2>
           </div>
@@ -46,7 +51,7 @@ export const Results = () => {
             return (
               <div key={index} ref={statAnimation.ref} className={statAnimation.className}>
                 <div className="text-center p-8">
-                  <div className="text-4xl lg:text-5xl font-bold text-gradient mb-2">
+                  <div className="text-5xl lg:text-6xl font-black text-gradient mb-2">
                     {stat.value}
                   </div>
                   <div className="text-xl font-semibold text-foreground mb-3">

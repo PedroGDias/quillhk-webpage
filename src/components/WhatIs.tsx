@@ -8,12 +8,17 @@ export const WhatIs = () => {
   const rightCardAnimation = useScrollAnimation({ delay: 600 });
 
   return (
-    <section className="py-16 lg:py-24">
-      <div className="container mx-auto px-32">
+    <section className="h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Subtle corner gradient bloom */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
+      <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-8 lg:px-16 relative">
         <div className="text-center mb-16">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Crafted builds a <span className="text-gradient">content-first culture</span> in your leadership team.
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-ultra-thick">
+              Crafted builds a <span className="text-gradient">content-first culture</span><br />in your leadership team.
             </h2>
           </div>
           <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
@@ -27,10 +32,11 @@ export const WhatIs = () => {
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* What Crafted Is */}
           <div ref={leftCardAnimation.ref} className={leftCardAnimation.className}>
-            <div className="bg-background p-8 space-y-6">
-              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
+            <div className="p-8">
+              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-1">
                 What Crafted <span className="text-gradient">Is</span>:
               </h3>
+              <div className="w-full h-px bg-gray-100 mb-6"></div>
               <div className="space-y-4">
                 {[
                   "A unique combo of software and 1:1 personalised mentoring.",
@@ -49,10 +55,11 @@ export const WhatIs = () => {
           
           {/* What Crafted Is Not */}
           <div ref={rightCardAnimation.ref} className={rightCardAnimation.className}>
-            <div className="bg-background p-8 space-y-6">
-              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
+            <div className="p-8">
+              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2 mb-1">
                 What Crafted <span className="text-gradient">Is Not</span>:
               </h3>
+              <div className="w-full h-px bg-gray-100 mb-6"></div>
               <div className="space-y-4">
                 {[
                   "AI ghostwriting that hurts your brand.",

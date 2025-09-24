@@ -32,7 +32,7 @@ export const GuideEmail = ({ name }: GuideEmailProps) => (
         </Text>
         <Text style={text}>
           Thanks for joining our waitlist! As promised, here's your copy of 
-          "The 5 Principles for Magnetic LinkedIn Leadership" — the same framework 
+          "The 5 Principles for Magnetic LinkedIn Leadership" - the same framework 
           our clients use to transform their LinkedIn presence.
         </Text>
         <Text style={text}>
