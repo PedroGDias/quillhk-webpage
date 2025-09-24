@@ -13,12 +13,12 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
   const imageAnimation = useScrollAnimation({ delay: 600 });
 
   return (
-    <section className="py-16 lg:py-20 pb-96">
+    <section className="py-32 lg:py-48 pb-96">
       <div className="container mx-auto px-32">
         <div className="grid lg:grid-cols-[4fr_1.5fr] gap-16 lg:gap-32 items-center">
           <div className="space-y-8">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-impact font-black leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
                 Convert your senior leaders into{" "}
                 <span className="text-gradient">
                   client and talent magnets on LinkedIn.
@@ -27,7 +27,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
             </div>
             
             <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
-              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed font-lato">
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
                 Turn leadership expertise into consistent, on-brand LinkedIn content that attracts clients and talent — in minutes per week, not hours.
               </p>
             </div>

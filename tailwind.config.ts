@@ -14,9 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        'impact': ['Impact', 'Arial Black', 'sans-serif'],
-        'lato': ['Lato', 'sans-serif'],
-        sans: ['Lato', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
