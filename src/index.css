@@ -178,13 +178,17 @@ All colors MUST be HSL.
   /* Mobile-specific scroll snap improvements */
   @media (max-width: 640px) {
     .scroll-snap-container {
+      height: auto;
+      min-height: 100vh;
+      overflow-y: auto;
       scroll-behavior: smooth;
+      scroll-snap-type: none; /* Disable scroll snap on mobile */
     }
     
     .scroll-snap-section {
-      scroll-snap-align: start;
-      scroll-snap-stop: normal; /* Allow faster scrolling on mobile */
-      min-height: 100vh; /* Use min-height for better mobile UX */
+      scroll-snap-align: none; /* Disable scroll snap on mobile */
+      scroll-snap-stop: normal;
+      min-height: 100vh;
       height: auto; /* Allow natural height on mobile */
     }
   }

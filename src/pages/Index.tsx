@@ -33,7 +33,7 @@ const Index = () => {
   return (
     <div className="scroll-snap-container bg-background">
       {/* Hero Section */}
-      <div className="h-screen flex flex-col scroll-snap-section">
+      <div className="min-h-screen flex flex-col scroll-snap-section">
         <Header onJoinWaitlist={handleJoinWaitlist} />
         <Hero onJoinWaitlist={handleJoinWaitlist} />
       </div>
