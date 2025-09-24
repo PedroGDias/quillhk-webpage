@@ -13,9 +13,9 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
   const imageAnimation = useScrollAnimation({ delay: 600 });
 
   return (
-    <section className="py-16 lg:py-24 pb-24">
+    <section className="py-16 lg:py-24 pb-40">
       <div className="container mx-auto px-32">
-        <div className="grid lg:grid-cols-[4fr_1.5fr] gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[4fr_1.5fr] gap-16 lg:gap-32 items-center">
           <div className="space-y-8">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
