@@ -79,33 +79,68 @@ interface JoinWaitlistRequest {
 
 async function sendWelcomeEmail(email: string, name?: string) {
   try {
-    console.log("Starting email process for:", email);
+    console.log("=== Starting email process ===");
+    console.log("Email:", email);
+    console.log("Name:", name || "Not provided");
     console.log("RESEND_API_KEY exists:", !!Deno.env.get("RESEND_API_KEY"));
     console.log("RESEND_AUDIENCE_ID exists:", !!Deno.env.get("RESEND_AUDIENCE_ID"));
 
     // Add to Resend audience if ID is provided
     const audienceId = Deno.env.get("RESEND_AUDIENCE_ID");
-    console.log("Audience ID:", audienceId);
+    console.log("Audience ID value:", audienceId);
+    
+    // Debug: Log what's available on the resend object
+    console.log("Resend object keys:", Object.keys(resend));
+    console.log("Resend object:", resend);
+    
     if (audienceId) {
+      console.log("Attempting to add contact to Resend audience...");
       try {
-        const audienceResponse = await resend.contacts.create({
-          email: email,
-          firstName: name || undefined,
-          audienceId: audienceId,
+        // Try the correct Resend API structure - it should be resend.contacts.create
+        // But first let's see if contacts exists
+        console.log("resend.contacts:", resend.contacts);
+        
+        // Use HTTP request directly if the SDK doesn't work
+        const response = await fetch('https://api.resend.com/contacts', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${Deno.env.get("RESEND_API_KEY")}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: email,
+            first_name: name || undefined,
+            audience_id: audienceId,
+          }),
         });
-        console.log("Contact added to audience successfully:", audienceResponse);
-      } catch (audienceError) {
-        console.error("Audience addition failed:", audienceError);
-        console.error("Audience error details:", JSON.stringify(audienceError, null, 2));
+
+        const audienceResponse = await response.json();
+        
+        if (response.ok) {
+          console.log("✅ Contact added to audience successfully:", JSON.stringify(audienceResponse, null, 2));
+        } else {
+          console.error("❌ Audience addition failed:", JSON.stringify(audienceResponse, null, 2));
+        }
+      } catch (audienceError: any) {
+        console.error("❌ Audience addition failed:");
+        console.error("Error message:", audienceError?.message);
+        console.error("Error status:", audienceError?.status);
+        console.error("Error details:", JSON.stringify(audienceError, null, 2));
+        
+        // Check if it's a duplicate contact error
+        if (audienceError?.message?.includes("already exists") || audienceError?.message?.includes("duplicate")) {
+          console.log("ℹ️ Contact already exists in audience - this is expected for repeat submissions");
+        }
       }
     } else {
-      console.log("No audience ID provided, skipping audience addition");
+      console.log("⚠️ No audience ID provided, skipping audience addition");
     }
 
     // Generate email HTML
     const emailHtml = generateEmailHTML(name);
 
     // Send email
+    console.log("Sending welcome email...");
     const emailResponse = await resend.emails.send({
       from: "Crafted <welcome@noreply.gocrafted.com>",
       to: [email],
@@ -119,10 +154,13 @@ async function sendWelcomeEmail(email: string, name?: string) {
       ],
     });
 
-    console.log("Email sent successfully:", emailResponse);
-  } catch (error) {
-    console.error("Background email task failed:", error);
-    console.error("Error details:", JSON.stringify(error, null, 2));
+    console.log("✅ Email sent successfully:", JSON.stringify(emailResponse, null, 2));
+    console.log("=== Email process completed ===");
+  } catch (error: any) {
+    console.error("❌ Background email task failed:");
+    console.error("Error message:", error?.message);
+    console.error("Error status:", error?.status);
+    console.error("Full error details:", JSON.stringify(error, null, 2));
   }
 }
 
