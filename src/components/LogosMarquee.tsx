@@ -42,12 +42,12 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
       <div className="container mx-auto px-32">
         <div className="flex flex-col items-center">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-sm font-medium text-center text-muted-foreground mb-3">
+            <h2 className="text-xl sm:text-2xl font-semibold text-center text-foreground mb-6">
               Personal brands using our software and 1:1 mentoring
             </h2>
           </div>
           
-          <div className="flex items-center justify-center gap-1 max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-8 max-w-4xl mx-auto">
             {brands.map((brand, index) => {
               const brandAnimation = useScrollAnimation({ delay: 200 + (index * 100) });
               return (
@@ -57,7 +57,7 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
                   className={brandAnimation.className}
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-3">
+                    <div className="w-16 h-16 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-1">
                       <img 
                         src={brand.logoSrc} 
                         alt={`${brand.company} logo`}
