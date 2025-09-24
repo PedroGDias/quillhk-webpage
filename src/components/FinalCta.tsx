@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface FinalCtaProps {
   onJoinWaitlist: () => void;
 }
 
 export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
+  const animationRef = useScrollAnimation();
+
   return (
-    <section className="py-16 lg:py-24 relative overflow-hidden">
+    <section ref={animationRef} className="py-16 lg:py-24 relative overflow-hidden">
       {/* Subtle corner gradient bloom */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>

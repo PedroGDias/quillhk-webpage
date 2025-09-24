@@ -1,6 +1,10 @@
 
 
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
 export const Results = () => {
+  const animationRef = useScrollAnimation();
+
   const stats = [
     {
       value: "85%",
@@ -20,7 +24,7 @@ export const Results = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24">
+    <section ref={animationRef} className="py-16 lg:py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">

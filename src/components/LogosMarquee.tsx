@@ -1,3 +1,5 @@
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
 interface LogoItem {
   logoSrc: string;
   caption: string;
@@ -16,8 +18,10 @@ const defaultLogos: LogoItem[] = [
 ];
 
 export const LogosMarquee = ({ logos = defaultLogos }: LogosMarqueeProps) => {
+  const animationRef = useScrollAnimation();
+
   return (
-    <section className="py-16 bg-gradient-to-b from-background to-muted/20">
+    <section ref={animationRef} className="py-16 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-foreground mb-12">
           Personal brands using our software and 1:1 mentoring

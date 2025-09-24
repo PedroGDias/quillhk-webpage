@@ -1,9 +1,11 @@
 import { Check, X } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const WhatIs = () => {
+  const animationRef = useScrollAnimation();
+
   return (
-    <section className="py-16 lg:py-24 bg-gradient-subtle">
+    <section ref={animationRef} className="py-16 lg:py-24 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -17,13 +19,13 @@ export const WhatIs = () => {
         
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* What Crafted Is */}
-          <Card className="bg-background border-border shadow-card">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-2">
+          <div className="bg-background p-8 rounded-lg">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
                 What Crafted <span className="text-gradient">Is</span>:
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+              </h3>
+            </div>
+            <div className="space-y-4">
               {[
                 "A unique combo of software and 1:1 personalised mentoring.",
                 "A WhatsApp content agent that turns ideas into posts.",
@@ -35,17 +37,17 @@ export const WhatIs = () => {
                   <span className="text-foreground">{item}</span>
                 </div>
               ))}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
           
           {/* What Crafted Is Not */}
-          <Card className="bg-background border-border shadow-card">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-2">
+          <div className="bg-background p-8 rounded-lg">
+            <div className="mb-6">
+              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
                 What Crafted <span className="text-gradient">Is Not</span>:
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+              </h3>
+            </div>
+            <div className="space-y-4">
               {[
                 "AI ghostwriting that hurts your brand.",
                 "An expensive ghostwriter that you have to manage.",
@@ -57,8 +59,8 @@ export const WhatIs = () => {
                   <span className="text-foreground">{item}</span>
                 </div>
               ))}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </section>

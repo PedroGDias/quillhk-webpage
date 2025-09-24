@@ -1,13 +1,16 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/crafted-hero-image.webp";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface HeroProps {
   onJoinWaitlist: () => void;
 }
 
 export const Hero = ({ onJoinWaitlist }: HeroProps) => {
+  const animationRef = useScrollAnimation();
+
   return (
-    <section className="py-16 lg:py-24">
+    <section ref={animationRef} className="py-16 lg:py-24">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-2 lg:gap-4 items-center">
           <div className="space-y-8">
