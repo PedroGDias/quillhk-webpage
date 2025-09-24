@@ -15,8 +15,8 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
   return (
     <section className="py-16 lg:py-24">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-2 lg:gap-4 items-center">
-          <div className="space-y-8">
+        <div className="grid lg:grid-cols-2 items-center max-w-6xl mx-auto">
+          <div className="space-y-8 lg:pr-8">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
                 Convert your senior leaders into{" "}
