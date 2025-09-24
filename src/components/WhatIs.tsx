@@ -2,24 +2,27 @@ import { Check, X } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const WhatIs = () => {
-  const animationRef = useScrollAnimation();
+  const titleRef = useScrollAnimation<HTMLHeadingElement>(0);
+  const subtitleRef = useScrollAnimation<HTMLParagraphElement>(200);
+  const leftCardRef = useScrollAnimation<HTMLDivElement>(400);
+  const rightCardRef = useScrollAnimation<HTMLDivElement>(600);
 
   return (
-    <section ref={animationRef} className="py-16 lg:py-24 bg-gradient-subtle">
+    <section className="py-16 lg:py-24 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 ref={titleRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Crafted builds a <span className="text-gradient">content-first culture</span> in your leadership team.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Crafted delivers the mentoring and software your leadership team needs to build a long-term 
+          <p ref={subtitleRef} className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Crafted delivers the mentoring and software your leadership team needs to build a long-term
             LinkedIn presence, in just 10 minutes per post.
           </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* What Crafted Is */}
-          <div className="bg-background p-8 rounded-lg">
+          <div ref={leftCardRef} className="bg-background p-8 rounded-lg">
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
                 What Crafted <span className="text-gradient">Is</span>:
@@ -41,7 +44,7 @@ export const WhatIs = () => {
           </div>
           
           {/* What Crafted Is Not */}
-          <div className="bg-background p-8 rounded-lg">
+          <div ref={rightCardRef} className="bg-background p-8 rounded-lg">
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
                 What Crafted <span className="text-gradient">Is Not</span>:

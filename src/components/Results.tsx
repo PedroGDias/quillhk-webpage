@@ -3,6 +3,11 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const Results = () => {
+  const titleRef = useScrollAnimation(0);
+  const card1Ref = useScrollAnimation(200);
+  const card2Ref = useScrollAnimation(400);
+  const card3Ref = useScrollAnimation(600);
+
   const animationRef = useScrollAnimation();
 
   const stats = [
