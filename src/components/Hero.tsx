@@ -9,10 +9,13 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
   return (
     <section className="py-16 lg:py-24">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-2 lg:gap-4 items-center">
           <div className="space-y-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gradient tracking-tight">
-              Convert your senior leaders into client and talent magnets on LinkedIn.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+              Convert your senior leaders into{" "}
+              <span className="text-gradient">
+                client and talent magnets on LinkedIn
+              </span>.
             </h1>
             
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-lg">
@@ -45,7 +48,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
             </div>
           </div>
           
-          <div className="flex justify-center lg:justify-start lg:pl-8">
+          <div className="flex justify-center lg:justify-start">
             <img 
               src={heroImage} 
               alt="Crafted mobile app illustration showing LinkedIn content creation"
