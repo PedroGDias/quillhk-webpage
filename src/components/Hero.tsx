@@ -61,7 +61,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
           </div>
           
           <div ref={imageAnimation.ref} className={imageAnimation.className}>
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-center">
               <img 
                 src={heroImage} 
                 alt="Crafted mobile app illustration showing LinkedIn content creation"
