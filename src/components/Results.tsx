@@ -33,7 +33,7 @@ export const Results = () => {
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative h-full flex flex-col justify-center">
         <div className="text-center mb-6 sm:mb-8 lg:mb-12">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 font-ultra-thick">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 sm:mb-4 font-ultra-thick">
               Real results for <span className="text-gradient">teams like yours</span>
             </h2>
           </div>

@@ -14,7 +14,7 @@ export const WhatIsTitle = () => {
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
         <div className="text-center">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-ultra-thick">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 font-ultra-thick">
               Crafted builds a <span className="text-gradient">content-first culture</span><br className="hidden sm:block" />
               <span className="sm:hidden"> </span>in your leadership team.
             </h2>
