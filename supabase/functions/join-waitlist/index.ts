@@ -13,63 +13,27 @@ interface JoinWaitlistRequest {
   email: string;
 }
 
-const handler = async (req: Request): Promise<Response> => {
-  // Handle CORS preflight requests
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
-
+async function sendWelcomeEmail(email: string, name?: string) {
   try {
-    const { name, email }: JoinWaitlistRequest = await req.json();
+    console.log("Starting email process for:", email);
 
-    if (!email) {
-      return new Response(
-        JSON.stringify({ ok: false, message: "Email is required" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        }
-      );
-    }
-
-    console.log("Adding contact to Resend audience:", email);
-
-    // Add contact to Resend audience (you'll need to replace with your actual audience ID)
-    // For now, we'll skip audience addition and just send the email
-    /*
-    try {
-      const audienceResponse = await resend.contacts.create({
-        email: email,
-        firstName: name || undefined,
-        audienceId: "your-actual-audience-id-here", // Replace with your actual audience ID
-      });
-      
-      console.log("Contact added to audience:", audienceResponse);
-    } catch (audienceError) {
-      console.error("Error adding to audience:", audienceError);
-      // Continue with email sending even if audience addition fails
-    }
-    */
-
-    // Send welcome email with PDF attachment from public folder
-    const pdfUrl = "https://bcxuphfuohongtfczsbw.supabase.co/storage/v1/object/public/guides/linkedin-guide.pdf";
-    console.log("Attempting to fetch PDF from:", pdfUrl);
-    
-    let pdfBuffer = null;
-    try {
-      const pdfResponse = await fetch(pdfUrl);
-      if (pdfResponse.ok) {
-        pdfBuffer = await pdfResponse.arrayBuffer();
-        console.log("PDF fetched successfully, size:", pdfBuffer.byteLength);
-      } else {
-        console.log("PDF fetch failed with status:", pdfResponse.status);
+    // Add to Resend audience if ID is provided
+    const audienceId = Deno.env.get("RESEND_AUDIENCE_ID");
+    if (audienceId) {
+      try {
+        await resend.contacts.create({
+          email: email,
+          firstName: name || undefined,
+          audienceId: audienceId,
+        });
+        console.log("Contact added to audience successfully");
+      } catch (audienceError) {
+        console.error("Audience addition failed:", audienceError);
       }
-    } catch (pdfError) {
-      console.error("Error fetching PDF:", pdfError);
     }
 
-    // Send welcome email with PDF attachment
-    const emailData: any = {
+    // Send email
+    const emailResponse = await resend.emails.send({
       from: "Crafted <onboarding@resend.dev>",
       to: [email],
       subject: "Welcome to Crafted - Your LinkedIn Guide is Here!",
@@ -79,7 +43,7 @@ const handler = async (req: Request): Promise<Response> => {
           
           <p>Thank you for joining our waitlist. We're excited to help you craft your magnetic LinkedIn leadership presence.</p>
           
-          <p>As promised, here's your guide: <strong>The 5 Principles for Magnetic LinkedIn Leadership</strong></p>
+          <p>Your guide "<strong>The 5 Principles for Magnetic LinkedIn Leadership</strong>" is attached to this email.</p>
           
           <p>This comprehensive guide will help you:</p>
           <ul>
@@ -103,27 +67,47 @@ const handler = async (req: Request): Promise<Response> => {
           <p>Best regards,<br>The Crafted Team</p>
         </div>
       `,
-    };
-
-    // Add PDF attachment if available
-    if (pdfBuffer) {
-      emailData.attachments = [
+      attachments: [
         {
           filename: "5-principles-magnetic-linkedin-leadership.pdf",
-          content: new Uint8Array(pdfBuffer),
+          path: "https://049dad50-564d-4a09-b33c-b8a4dc8c6474.lovableproject.com/guides/linkedin-guide.pdf",
         },
-      ];
-    }
-
-    const emailResponse = await resend.emails.send(emailData);
+      ],
+    });
 
     console.log("Email sent successfully:", emailResponse);
+  } catch (error) {
+    console.error("Background email task failed:", error);
+  }
+}
 
+const handler = async (req: Request): Promise<Response> => {
+  // Handle CORS preflight requests
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers: corsHeaders });
+  }
+
+  try {
+    const { name, email }: JoinWaitlistRequest = await req.json();
+
+    if (!email) {
+      return new Response(
+        JSON.stringify({ ok: false, message: "Email is required" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    // Start email process in background
+    EdgeRuntime.waitUntil(sendWelcomeEmail(email, name));
+
+    // Return immediate success response
     return new Response(
       JSON.stringify({ 
         ok: true, 
-        message: "Successfully joined waitlist and email sent!",
-        emailId: emailResponse.data?.id 
+        message: "Successfully joined waitlist! Check your email for the guide." 
       }),
       {
         status: 200,
@@ -136,7 +120,7 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(
       JSON.stringify({ 
         ok: false, 
-        message: error.message || "An error occurred while processing your request" 
+        message: "An error occurred while processing your request" 
       }),
       {
         status: 500,
