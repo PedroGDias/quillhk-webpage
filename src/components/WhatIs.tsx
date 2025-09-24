@@ -7,7 +7,7 @@ export const WhatIs = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Crafted builds a <span className="text-primary">content-first culture</span> in your leadership team.
+            Crafted builds a <span className="text-gradient">content-first culture</span> in your leadership team.
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Crafted delivers the mentoring and software your leadership team needs to build a long-term 
@@ -20,7 +20,7 @@ export const WhatIs = () => {
           <Card className="bg-background border-border shadow-card">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-2">
-                What Crafted Is:
+                What Crafted <span className="text-gradient">Is</span>:
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -42,7 +42,7 @@ export const WhatIs = () => {
           <Card className="bg-background border-border shadow-card">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-2">
-                What Crafted Is Not:
+                What Crafted <span className="text-gradient">Is Not</span>:
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">

@@ -16,7 +16,7 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
         <div className="text-center space-y-8 max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             Ready to{" "}
-            <span className="bg-gradient-to-r from-[#1D4ED8] to-[#60A5FA] text-transparent bg-clip-text">
+            <span className="text-gradient">
               transform your LinkedIn
             </span>{" "}
             presence?

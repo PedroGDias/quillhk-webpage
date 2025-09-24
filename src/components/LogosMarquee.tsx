@@ -23,32 +23,8 @@ export const LogosMarquee = ({ logos = defaultLogos }: LogosMarqueeProps) => {
           Personal brands using our software and 1:1 mentoring
         </h2>
         
-        {/* Desktop: Marquee */}
-        <div className="hidden md:block overflow-hidden">
-          <div className="flex items-center space-x-8 animate-marquee hover:pause">
-            {[...logos, ...logos].map((logo, index) => (
-              <div 
-                key={index}
-                className="flex-shrink-0 flex flex-col items-center group"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-300">
-                  <img 
-                    src={logo.logoSrc} 
-                    alt={`${logo.caption} logo`}
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <span className="text-xs text-muted-foreground mt-2 text-center max-w-20">
-                  {logo.caption}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Mobile: Grid */}
-        <div className="md:hidden grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center">
-          {logos.slice(0, 6).map((logo, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 justify-items-center max-w-4xl mx-auto">
+          {logos.map((logo, index) => (
             <div 
               key={index}
               className="flex flex-col items-center"
