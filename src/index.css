@@ -112,8 +112,12 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans leading-tight;
     letter-spacing: -0.02em;
+  }
+  
+  p {
+    @apply leading-snug;
   }
 }
 
