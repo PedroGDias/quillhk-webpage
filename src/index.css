@@ -166,44 +166,16 @@ All colors MUST be HSL.
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height for mobile support */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
 
   .scroll-snap-section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    min-height: 100vh; /* Use min-height instead of fixed height */
-  }
-
-  /* Mobile-specific scroll snap improvements */
-  @media (max-width: 640px) {
-    .scroll-snap-container {
-      height: auto;
-      min-height: 100vh;
-      overflow-y: auto;
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory; /* Re-enable scroll snap */
-    }
-    
-    .scroll-snap-section {
-      scroll-snap-align: start;
-      scroll-snap-stop: normal;
-      min-height: 100vh;
-      height: auto; /* Allow natural height on mobile */
-    }
-    
-    /* Force mobile sections to be flexible - only override specific problematic sections */
-    .scroll-snap-section section.min-h-screen {
-      min-height: auto !important;
-      height: auto !important;
-    }
-  }
-
-  /* Desktop-specific behavior - keep original desktop layout */
-  @media (min-width: 1024px) {
-    .scroll-snap-section {
-      scroll-snap-stop: always; /* Keep strict snapping on desktop */
-    }
+    height: 100vh;
+    height: 100dvh; /* Each section is exactly viewport height */
+    overflow: hidden; /* Hide overflow on the section wrapper; child will scroll */
   }
 
   /* Make all headings MUCH MUCH thicker */
