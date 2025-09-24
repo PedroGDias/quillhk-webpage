@@ -13,7 +13,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
   const mobileLogoAnimation = useScrollAnimation({ delay: 450 });
 
   return (
-    <section className="flex-1 flex items-start sm:items-center justify-center relative overflow-hidden pt-32 sm:pt-0">
+    <section className="min-h-screen sm:flex-1 flex items-start sm:items-center justify-center relative overflow-hidden pt-32 sm:pt-0">
       {/* Subtle corner gradient bloom */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>

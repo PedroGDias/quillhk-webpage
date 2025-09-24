@@ -182,14 +182,20 @@ All colors MUST be HSL.
       min-height: 100vh;
       overflow-y: auto;
       scroll-behavior: smooth;
-      scroll-snap-type: none; /* Disable scroll snap on mobile */
+      scroll-snap-type: y mandatory; /* Re-enable scroll snap */
     }
     
     .scroll-snap-section {
-      scroll-snap-align: none; /* Disable scroll snap on mobile */
+      scroll-snap-align: start;
       scroll-snap-stop: normal;
       min-height: 100vh;
       height: auto; /* Allow natural height on mobile */
+    }
+    
+    /* Force mobile sections to be flexible - only override specific problematic sections */
+    .scroll-snap-section section.min-h-screen {
+      min-height: auto !important;
+      height: auto !important;
     }
   }
 
