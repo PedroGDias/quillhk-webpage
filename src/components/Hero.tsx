@@ -6,9 +6,9 @@ interface HeroProps {
 }
 
 export const Hero = ({ onJoinWaitlist }: HeroProps) => {
-  const titleAnimation = useScrollAnimation();
-  const subtitleAnimation = useScrollAnimation({ delay: 200 });
-  const buttonsAnimation = useScrollAnimation({ delay: 400 });
+  const titleAnimation = useScrollAnimation({ delay: 150 });
+  const subtitleAnimation = useScrollAnimation({ delay: 250 });
+  const buttonsAnimation = useScrollAnimation({ delay: 350 });
 
   return (
     <section className="flex-1 flex items-center justify-center relative overflow-hidden">
@@ -17,10 +17,10 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
       
-      <div className="container mx-auto px-8 lg:px-16 relative">
-        <div className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
+        <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight font-ultra-thick">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight font-ultra-thick">
               Convert your senior leaders into{" "}
               <span className="text-gradient">
                 client and talent magnets on LinkedIn.
@@ -29,25 +29,25 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
           </div>
           
           <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Turn leadership expertise into consistent, on-brand LinkedIn content that attracts clients and talent - in minutes per week, not hours.
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              Turn leadership expertise into outbound DMs and Content that attracts clients and talent - in minutes per week, not hours.
             </p>
           </div>
           
           <div ref={buttonsAnimation.ref} className={buttonsAnimation.className}>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-md sm:max-w-none">
               <Button 
                 size="lg" 
                 onClick={onJoinWaitlist}
-                className="text-base font-semibold px-6"
+                className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto"
               >
-                Join Waitlist
+                Get Your Free Guide
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
                 asChild
-                className="text-base font-semibold px-6"
+                className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto"
               >
                 <a 
                   href="https://calendly.com/underdogfounders/30min" 

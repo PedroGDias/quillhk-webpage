@@ -1,23 +1,21 @@
 import { Check, X } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
-export const WhatIs = () => {
-  const titleAnimation = useScrollAnimation();
-  const subtitleAnimation = useScrollAnimation({ delay: 200 });
-  const leftCardTitleAnimation = useScrollAnimation({ delay: 400 });
-  const rightCardTitleAnimation = useScrollAnimation({ delay: 500 });
+export const WhatIsDesktop = () => {
+  const leftCardTitleAnimation = useScrollAnimation({ delay: 250 });
+  const rightCardTitleAnimation = useScrollAnimation({ delay: 350 });
   
   // Individual line animations for left card
-  const leftLine1Animation = useScrollAnimation({ delay: 600 });
-  const leftLine2Animation = useScrollAnimation({ delay: 700 });
-  const leftLine3Animation = useScrollAnimation({ delay: 800 });
-  const leftLine4Animation = useScrollAnimation({ delay: 900 });
+  const leftLine1Animation = useScrollAnimation({ delay: 450 });
+  const leftLine2Animation = useScrollAnimation({ delay: 550 });
+  const leftLine3Animation = useScrollAnimation({ delay: 650 });
+  const leftLine4Animation = useScrollAnimation({ delay: 750 });
   
   // Individual line animations for right card
-  const rightLine1Animation = useScrollAnimation({ delay: 1000 });
-  const rightLine2Animation = useScrollAnimation({ delay: 1100 });
-  const rightLine3Animation = useScrollAnimation({ delay: 1200 });
-  const rightLine4Animation = useScrollAnimation({ delay: 1300 });
+  const rightLine1Animation = useScrollAnimation({ delay: 850 });
+  const rightLine2Animation = useScrollAnimation({ delay: 950 });
+  const rightLine3Animation = useScrollAnimation({ delay: 1050 });
+  const rightLine4Animation = useScrollAnimation({ delay: 1150 });
 
   return (
     <section className="h-screen flex items-center justify-center relative overflow-hidden">
@@ -27,27 +25,12 @@ export const WhatIs = () => {
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
-        <div className="text-center mb-12 sm:mb-16">
-          <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-ultra-thick px-4">
-              Crafted builds a <span className="text-gradient">content-first culture</span><br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>in your leadership team.
-            </h2>
-          </div>
-          <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
-              Crafted delivers the mentoring and software your leadership team needs to build a long-term 
-              LinkedIn presence, in just 10 minutes per post.
-            </p>
-          </div>
-        </div>
-        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {/* What Crafted Is */}
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={leftCardTitleAnimation.ref} className={leftCardTitleAnimation.className}>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2 mb-1">
-                What Crafted <span className="text-gradient">Is</span>:
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground flex items-center gap-2 mb-1 font-ultra-thick">
+                What Crafted <span className="text-gradient">Is</span>
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
             </div>
@@ -82,8 +65,8 @@ export const WhatIs = () => {
           {/* What Crafted Is Not */}
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={rightCardTitleAnimation.ref} className={rightCardTitleAnimation.className}>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2 mb-1">
-                What Crafted <span className="text-gradient">Is Not</span>:
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground flex items-center gap-2 mb-1 font-ultra-thick">
+                What Crafted <span className="text-gradient">Is Not</span>
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
             </div>

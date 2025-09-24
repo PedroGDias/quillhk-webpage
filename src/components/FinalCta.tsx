@@ -7,10 +7,10 @@ interface FinalCtaProps {
 }
 
 export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
-  const titleAnimation = useScrollAnimation();
-  const subtitleAnimation = useScrollAnimation({ delay: 200 });
-  const buttonsAnimation = useScrollAnimation({ delay: 400 });
-  const footerAnimation = useScrollAnimation({ delay: 600 });
+  const titleAnimation = useScrollAnimation({ delay: 150 });
+  const subtitleAnimation = useScrollAnimation({ delay: 250 });
+  const buttonsAnimation = useScrollAnimation({ delay: 350 });
+  const footerAnimation = useScrollAnimation({ delay: 450 });
 
   const currentYear = new Date().getFullYear();
 
@@ -23,10 +23,10 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
       
       {/* CTA Content */}
       <div className="flex-1 flex items-center justify-center">
-        <div className="container mx-auto px-8 lg:px-16 relative">
-          <div className="text-center space-y-8 max-w-4xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
+          <div className="text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight font-ultra-thick">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-ultra-thick">
                 Ready to{" "}
                 <span className="text-gradient">
                   transform your LinkedIn
@@ -36,25 +36,26 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
             </div>
             
             <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Join professionals using Crafted to create engaging LinkedIn content<br />that drives results.
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+                Join professionals using Crafted to create engaging LinkedIn content<br className="hidden sm:block" />
+                <span className="sm:hidden"> </span>that drives results.
               </p>
             </div>
             
             <div ref={buttonsAnimation.ref} className={buttonsAnimation.className}>
-              <div className="flex justify-center gap-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <Button 
                   size="lg" 
                   onClick={onJoinWaitlist}
-                  className="text-base font-semibold px-6 flex-1 max-w-48"
+                  className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto sm:max-w-48"
                 >
-                  Get Started Today
+                  Get Your Free Guide
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg" 
                   asChild
-                  className="text-base font-semibold px-6 flex-1 max-w-48"
+                  className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto sm:max-w-48"
                 >
                   <a 
                     href="https://calendly.com/underdogfounders/30min" 
@@ -73,23 +74,15 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
       {/* Footer */}
       <footer ref={footerAnimation.ref} className={footerAnimation.className}>
         <div className="bg-muted/30 border-t border-border">
-          <div className="container mx-auto px-8 lg:px-16 py-4">
-            <div className="flex flex-col items-center space-y-2 text-center">
-              <div className="flex items-center gap-1">
-                <img 
-                  src={craftedLogo} 
-                  alt="Crafted logo" 
-                  className="w-8 h-8"
-                />
-                <span className="crafted-brand text-sm">Crafted</span>
-              </div>
-              
-              <p className="text-xs text-muted-foreground max-w-sm">
-                Transform your LinkedIn presence with AI-powered content that engages your audience and drives business results.
-              </p>
-              
-              <div className="text-xs text-muted-foreground">
-                © {currentYear} Crafted. All rights reserved.
+          <div className="container mx-auto px-4 sm:px-8 lg:px-16 py-2 sm:py-3">
+            <div className="flex items-center justify-center gap-1 text-center">
+              <img 
+                src={craftedLogo} 
+                alt="Crafted logo" 
+                className="w-4 h-4 sm:w-5 sm:h-5"
+              />
+              <div className="text-[10px] sm:text-xs text-muted-foreground">
+                {currentYear} Crafted. All rights reserved.
               </div>
             </div>
           </div>

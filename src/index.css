@@ -146,11 +146,33 @@ All colors MUST be HSL.
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
 
   .scroll-snap-section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    height: 100vh; /* Ensure each section takes full viewport height */
+  }
+
+  /* Mobile-specific scroll snap improvements */
+  @media (max-width: 640px) {
+    .scroll-snap-container {
+      scroll-behavior: smooth;
+    }
+    
+    .scroll-snap-section {
+      scroll-snap-align: start;
+      scroll-snap-stop: normal; /* Allow faster scrolling on mobile */
+      height: 100vh; /* Force full height on mobile */
+    }
+  }
+
+  /* Desktop-specific behavior - keep original desktop layout */
+  @media (min-width: 1024px) {
+    .scroll-snap-section {
+      scroll-snap-stop: always; /* Keep strict snapping on desktop */
+    }
   }
 
   /* Make all headings MUCH MUCH thicker */
@@ -168,6 +190,7 @@ All colors MUST be HSL.
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.15) !important;
     -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1) !important;
     transform: scale(1.02) !important;
+    padding-right: 0.1em !important; /* Add small padding to prevent cutoff */
   }
 
   /* Make Crafted text by logo match titles */
