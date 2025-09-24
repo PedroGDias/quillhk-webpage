@@ -1,15 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface FinalCtaProps {
   onJoinWaitlist: () => void;
 }
 
 export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
-  const titleRef = useScrollAnimation<HTMLHeadingElement>(0);
-  const subtitleRef = useScrollAnimation<HTMLParagraphElement>(200);
-  const buttonsRef = useScrollAnimation<HTMLDivElement>(400);
-
   return (
     <section className="py-16 lg:py-24 relative overflow-hidden">
       {/* Subtle corner gradient bloom */}
@@ -19,7 +14,7 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
       
       <div className="container mx-auto px-6 relative">
         <div className="text-center space-y-8 max-w-4xl mx-auto">
-          <h2 ref={titleRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             Ready to{" "}
             <span className="text-gradient">
               transform your LinkedIn
@@ -27,11 +22,11 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
             presence?
           </h2>
           
-          <p ref={subtitleRef} className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Join professionals using Crafted to create engaging LinkedIn content that drives results.
           </p>
           
-          <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
               onClick={onJoinWaitlist}

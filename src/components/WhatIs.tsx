@@ -1,34 +1,29 @@
 import { Check, X } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const WhatIs = () => {
-  const titleRef = useScrollAnimation<HTMLHeadingElement>(0);
-  const subtitleRef = useScrollAnimation<HTMLParagraphElement>(200);
-  const leftCardRef = useScrollAnimation<HTMLDivElement>(400);
-  const rightCardRef = useScrollAnimation<HTMLDivElement>(600);
-
   return (
     <section className="py-16 lg:py-24 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 ref={titleRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Crafted builds a <span className="text-gradient">content-first culture</span> in your leadership team.
           </h2>
-          <p ref={subtitleRef} className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Crafted delivers the mentoring and software your leadership team needs to build a long-term
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Crafted delivers the mentoring and software your leadership team needs to build a long-term 
             LinkedIn presence, in just 10 minutes per post.
           </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* What Crafted Is */}
-          <div ref={leftCardRef} className="bg-background p-8 rounded-lg">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
+          <Card className="bg-background border-border shadow-card">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-2">
                 What Crafted <span className="text-gradient">Is</span>:
-              </h3>
-            </div>
-            <div className="space-y-4">
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
               {[
                 "A unique combo of software and 1:1 personalised mentoring.",
                 "A WhatsApp content agent that turns ideas into posts.",
@@ -40,17 +35,17 @@ export const WhatIs = () => {
                   <span className="text-foreground">{item}</span>
                 </div>
               ))}
-            </div>
-          </div>
+            </CardContent>
+          </Card>
           
           {/* What Crafted Is Not */}
-          <div ref={rightCardRef} className="bg-background p-8 rounded-lg">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-foreground flex items-center gap-2">
+          <Card className="bg-background border-border shadow-card">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-foreground flex items-center gap-2">
                 What Crafted <span className="text-gradient">Is Not</span>:
-              </h3>
-            </div>
-            <div className="space-y-4">
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
               {[
                 "AI ghostwriting that hurts your brand.",
                 "An expensive ghostwriter that you have to manage.",
@@ -62,8 +57,8 @@ export const WhatIs = () => {
                   <span className="text-foreground">{item}</span>
                 </div>
               ))}
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
