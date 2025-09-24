@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 interface JoinWaitlistModalProps {
   open: boolean;
@@ -20,7 +20,6 @@ interface JoinWaitlistModalProps {
 export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
 
@@ -36,61 +35,38 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
       return;
     }
 
-    setIsLoading(true);
+    // INSTANT SUCCESS - Show success immediately
+    setIsSuccess(true);
+    toast({
+      title: "Welcome to the waitlist!",
+      description: "Check your inbox for your LinkedIn guide.",
+    });
 
-    try {
-      setIsLoading(true);
-      
-      // Call the edge function and wait for response
-      const { supabase } = await import("@/integrations/supabase/client");
-      
-      const { data, error } = await supabase.functions.invoke('join-waitlist', {
-        body: {
-          name: name.trim() || undefined,
-          email: email.trim(),
-        },
-      });
-
-      if (error) {
-        console.error('Supabase function error:', error);
-        toast({
-          title: "Something went wrong",
-          description: "Please try again later.",
-          variant: "destructive",
+    // Run email sending in background (don't wait for it)
+    (async () => {
+      try {
+        const { supabase } = await import("@/integrations/supabase/client");
+        
+        await supabase.functions.invoke('join-waitlist', {
+          body: {
+            name: name.trim() || undefined,
+            email: email.trim(),
+          },
         });
-        return;
+        
+        // Optional: Log success for debugging
+        console.log('Email sent successfully in background');
+      } catch (error) {
+        // Silent fail - user already sees success
+        console.error('Background email sending failed:', error);
+        // Could optionally show a subtle notification later if needed
       }
-
-      if (data?.ok) {
-        // Show success
-        setIsSuccess(true);
-        toast({
-          title: "Welcome to the waitlist!",
-          description: "Check your inbox for your LinkedIn guide.",
-        });
-      } else {
-        toast({
-          title: "Something went wrong",
-          description: data?.message || "Please try again later.",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      console.error('Unexpected error:', error);
-      toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    })();
   };
 
   const handleClose = () => {
     setName("");
     setEmail("");
-    setIsLoading(false);
     setIsSuccess(false);
     onOpenChange(false);
   };
@@ -117,7 +93,6 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
                   placeholder="Your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  disabled={isLoading}
                 />
               </div>
               
@@ -129,7 +104,6 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  disabled={isLoading}
                   required
                 />
               </div>
@@ -137,16 +111,9 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
               <Button 
                 type="submit" 
                 className="w-full" 
-                disabled={isLoading || !email}
+                disabled={!email}
               >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Joining...
-                  </>
-                ) : (
-                  "Join Waitlist"
-                )}
+                Join Waitlist
               </Button>
             </form>
           </>
