@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface FinalCtaProps {
   onJoinWaitlist: () => void;
 }
 
 export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
+  const titleAnimation = useScrollAnimation();
+  const subtitleAnimation = useScrollAnimation({ delay: 200 });
+  const buttonsAnimation = useScrollAnimation({ delay: 400 });
+
   return (
     <section className="py-16 lg:py-24 relative overflow-hidden">
       {/* Subtle corner gradient bloom */}
@@ -14,40 +19,46 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
       
       <div className="container mx-auto px-6 relative">
         <div className="text-center space-y-8 max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-            Ready to{" "}
-            <span className="text-gradient">
-              transform your LinkedIn
-            </span>{" "}
-            presence?
-          </h2>
+          <div ref={titleAnimation.ref} className={titleAnimation.className}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+              Ready to{" "}
+              <span className="text-gradient">
+                transform your LinkedIn
+              </span>{" "}
+              presence?
+            </h2>
+          </div>
           
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join professionals using Crafted to create engaging LinkedIn content that drives results.
-          </p>
+          <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Join professionals using Crafted to create engaging LinkedIn content that drives results.
+            </p>
+          </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              onClick={onJoinWaitlist}
-              className="text-base font-semibold px-8"
-            >
-              Get Started Today
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              asChild
-              className="text-base font-semibold"
-            >
-              <a 
-                href="https://calendly.com/underdogfounders/30min" 
-                target="_blank" 
-                rel="noopener noreferrer"
+          <div ref={buttonsAnimation.ref} className={buttonsAnimation.className}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                onClick={onJoinWaitlist}
+                className="text-base font-semibold px-8"
               >
-                Book a Demo
-              </a>
-            </Button>
+                Get Started Today
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                asChild
+                className="text-base font-semibold"
+              >
+                <a 
+                  href="https://calendly.com/underdogfounders/30min" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Book a Demo
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
