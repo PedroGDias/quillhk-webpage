@@ -25,7 +25,7 @@ export const Results = () => {
 
   return (
     <section className="py-16 lg:py-24">
-      <div className="container mx-auto px-8">
+      <div className="container mx-auto px-16">
         <div className="text-center mb-16">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
