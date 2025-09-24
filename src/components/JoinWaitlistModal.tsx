@@ -39,18 +39,18 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/join-waitlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      const { supabase } = await import("@/integrations/supabase/client");
+      
+      const { data, error } = await supabase.functions.invoke('join-waitlist', {
+        body: {
           name: name.trim() || undefined,
           email: email.trim(),
-        }),
+        },
       });
 
-      const data = await response.json();
+      if (error) {
+        throw new Error(error.message);
+      }
 
       if (data.ok) {
         setIsSuccess(true);
@@ -155,7 +155,7 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
             <div className="space-y-3">
               <Button asChild className="w-full">
                 <a 
-                  href="/guides/crafted-5-principles.pdf" 
+                  href="/guides/linkedin-guide.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
