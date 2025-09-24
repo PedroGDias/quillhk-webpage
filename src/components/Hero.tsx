@@ -15,21 +15,20 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
   return (
     <section className="py-16 lg:py-24">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-[3fr_2fr] gap-2 lg:gap-4 items-center">
+        <div className="grid lg:grid-cols-[4fr_1.5fr] gap-2 lg:gap-4 items-center">
           <div className="space-y-8">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
                 Convert your senior leaders into{" "}
                 <span className="text-gradient">
-                  client and talent magnets on LinkedIn
-                </span>.
+                  client and talent magnets on LinkedIn.
+                </span>
               </h1>
             </div>
             
             <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
-              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-lg">
-                Turn leadership expertise into consistent, on-brand LinkedIn content that attracts 
-                clients and talent — in minutes per week, not hours.
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                Turn leadership expertise into consistent, on-brand LinkedIn content that attracts clients and talent — in minutes per week, not hours.
               </p>
             </div>
             
