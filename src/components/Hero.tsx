@@ -13,7 +13,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
   const imageAnimation = useScrollAnimation({ delay: 600 });
 
   return (
-    <section className="py-16 lg:py-24 pb-40">
+    <section className="py-16 lg:py-24 pb-64">
       <div className="container mx-auto px-32">
         <div className="grid lg:grid-cols-[4fr_1.5fr] gap-16 lg:gap-32 items-center">
           <div className="space-y-8">
