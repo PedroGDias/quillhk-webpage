@@ -38,11 +38,11 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
   const titleAnimation = useScrollAnimation();
 
   return (
-    <section className="py-16 bg-gradient-to-b from-background to-muted/20">
+    <section className="py-4 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-32">
         <div className="flex flex-col items-center">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-xl sm:text-2xl font-semibold text-center text-foreground mb-6">
+            <h2 className="text-xl sm:text-2xl font-semibold text-center text-foreground mb-2">
               Personal brands using our software and 1:1 mentoring
             </h2>
           </div>
