@@ -40,42 +40,41 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
   return (
     <section className="py-16 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-6">
-        <div ref={titleAnimation.ref} className={titleAnimation.className}>
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-foreground mb-12">
-            Personal brands using our software and 1:1 mentoring
-          </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center max-w-4xl mx-auto">
-          {brands.map((brand, index) => {
-            const brandAnimation = useScrollAnimation({ delay: 200 + (index * 100) });
-            return (
-              <div 
-                key={index}
-                ref={brandAnimation.ref} 
-                className={brandAnimation.className}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-3">
-                    <img 
-                      src={brand.logoSrc} 
-                      alt={`${brand.company} logo`}
-                      className="w-12 h-12 object-contain rounded-md"
-                    />
+        <div className="flex flex-col items-center">
+          <div ref={titleAnimation.ref} className={titleAnimation.className}>
+            <h2 className="text-sm font-medium text-center text-muted-foreground mb-3">
+              Personal brands using our software and 1:1 mentoring
+            </h2>
+          </div>
+          
+          <div className="flex items-center justify-center gap-1 max-w-4xl mx-auto">
+            {brands.map((brand, index) => {
+              const brandAnimation = useScrollAnimation({ delay: 200 + (index * 100) });
+              return (
+                <div 
+                  key={index}
+                  ref={brandAnimation.ref} 
+                  className={brandAnimation.className}
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-3">
+                      <img 
+                        src={brand.logoSrc} 
+                        alt={`${brand.company} logo`}
+                        className="w-12 h-12 object-contain rounded-md"
+                      />
+                    </div>
+                    <h3 className="font-bold text-foreground text-sm mb-1">
+                      {brand.name}
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      {brand.role}, {brand.company}
+                    </p>
                   </div>
-                  <h3 className="font-bold text-foreground text-sm mb-1">
-                    {brand.name}
-                  </h3>
-                  <p className="text-xs text-muted-foreground">
-                    {brand.role}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {brand.company}
-                  </p>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
