@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/crafted-hero-image.webp";
+import heroImage from "@/assets/crafted-hero-image-new.png";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 interface HeroProps {
