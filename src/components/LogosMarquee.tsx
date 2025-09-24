@@ -38,7 +38,7 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
   const titleAnimation = useScrollAnimation();
 
   return (
-    <section className="py-4 bg-gradient-to-b from-background to-muted/20">
+    <section className="py-4">
       <div className="container mx-auto px-32">
         <div className="flex flex-col items-center">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>

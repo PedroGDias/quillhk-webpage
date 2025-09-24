@@ -8,7 +8,7 @@ export const WhatIs = () => {
   const rightCardAnimation = useScrollAnimation({ delay: 600 });
 
   return (
-    <section className="py-16 lg:py-24 bg-gradient-subtle">
+    <section className="py-16 lg:py-24">
       <div className="container mx-auto px-32">
         <div className="text-center mb-16">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
