@@ -35,10 +35,10 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
               Get Started Today
             </Button>
             <Button 
-              variant="link" 
+              variant="outline" 
               size="lg" 
               asChild
-              className="text-base font-semibold text-primary hover:text-primary/80"
+              className="text-base font-semibold"
             >
               <a 
                 href="https://calendly.com/underdogfounders/30min" 
