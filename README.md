@@ -1,73 +1,129 @@
-# Welcome to your Lovable project
+# Crafted - LinkedIn Leadership Platform
 
-## Project info
+Transform your senior leaders into client and talent magnets on LinkedIn.
+
+## Features
+
+- **Hero Section**: Compelling value proposition with clear CTAs
+- **Waitlist Modal**: Captures leads and delivers PDF guide via email
+- **Social Proof**: Marquee of client logos and testimonials
+- **Feature Comparison**: What Crafted is vs. what it's not
+- **Results Section**: Key metrics and user outcomes
+- **Email Integration**: Automated PDF delivery via Resend
+
+## Environment Variables
+
+Create a `.env.local` file with the following variables:
+
+```env
+RESEND_API_KEY=your_resend_api_key_here
+RESEND_AUDIENCE_ID=your_audience_id_here
+SENDER_EMAIL=your_verified_sender_email@domain.com
+```
+
+### Setting up Resend
+
+1. Sign up at [resend.com](https://resend.com)
+2. Verify your sender email domain
+3. Create an API key
+4. Create an audience for your waitlist
+5. Add the credentials to your environment variables
+
+## Tech Stack
+
+- **Frontend**: React + TypeScript + Vite
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Email**: Resend + React Email
+- **Icons**: Lucide React
+
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Set up environment variables (see above)
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173)
+
+## Components
+
+- `Header`: Navigation with logo and CTA buttons
+- `Hero`: Main value proposition and hero image
+- `LogosMarquee`: Social proof with client logos
+- `WhatIs`: Feature comparison (is vs. is not)
+- `Results`: Key metrics and outcomes
+- `FinalCta`: Final conversion section
+- `Footer`: Minimal footer with branding
+- `JoinWaitlistModal`: Modal for capturing leads
+
+## API Routes
+
+Since this is a Vite project (not Next.js), you'll need to implement the API endpoint separately. The frontend expects:
+
+- `POST /api/join-waitlist`: Accepts `{ name?, email }` and returns `{ ok: boolean, message? }`
+
+For a complete implementation, consider using:
+- Vercel Functions
+- Netlify Functions  
+- Or a separate Express.js server
+
+## Files Structure
+
+```
+src/
+├── components/          # React components
+│   ├── Header.tsx      # Navigation header
+│   ├── Hero.tsx        # Hero section
+│   ├── LogosMarquee.tsx # Social proof logos
+│   ├── WhatIs.tsx      # Feature comparison
+│   ├── Results.tsx     # Results metrics
+│   ├── FinalCta.tsx    # Final CTA section
+│   ├── Footer.tsx      # Footer
+│   └── JoinWaitlistModal.tsx # Waitlist modal
+├── emails/             # Email templates
+│   └── GuideEmail.tsx  # PDF guide email
+├── lib/                # Utilities
+│   └── resend.ts       # Resend client
+└── assets/             # Static assets
+    ├── crafted-logo.webp
+    └── crafted-hero-image.webp
+```
+
+## Deployment
+
+The app can be deployed to any static hosting platform. The PDF guide is served from `/public/guides/crafted-5-principles.pdf`.
+
+## Accessibility
+
+- Semantic HTML structure
+- Keyboard navigation support
+- ARIA labels and descriptions
+- Focus management
+- Screen reader friendly
+
+## Performance
+
+- Optimized images
+- Tree-shaken icon imports
+- Minimal bundle size
+- Fast loading times
+
+---
+
+## Original Lovable Project Info
 
 **URL**: https://lovable.dev/projects/049dad50-564d-4a09-b33c-b8a4dc8c6474
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/049dad50-564d-4a09-b33c-b8a4dc8c6474) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
+This project was bootstrapped with Lovable and uses:
 - Vite
-- TypeScript
+- TypeScript  
 - React
 - shadcn-ui
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/049dad50-564d-4a09-b33c-b8a4dc8c6474) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
