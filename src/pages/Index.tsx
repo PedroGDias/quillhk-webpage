@@ -8,12 +8,18 @@ import { WhatIsDesktop } from "@/components/WhatIsDesktop";
 import { Results } from "@/components/Results";
 import { FinalCta } from "@/components/FinalCta";
 import { JoinWaitlistModal } from "@/components/JoinWaitlistModal";
+import { GetGuideModal } from "@/components/GetGuideModal";
 
 const Index = () => {
   const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
+  const [isGetGuideModalOpen, setIsGetGuideModalOpen] = useState(false);
 
   const handleJoinWaitlist = () => {
     setIsWaitlistModalOpen(true);
+  };
+
+  const handleGetGuide = () => {
+    setIsGetGuideModalOpen(true);
   };
 
   const whatIsItems = [
@@ -69,12 +75,17 @@ const Index = () => {
       
       {/* Final CTA Section */}
       <div className="scroll-snap-section">
-        <FinalCta onJoinWaitlist={handleJoinWaitlist} />
+        <FinalCta onGetGuide={handleGetGuide} />
       </div>
       
       <JoinWaitlistModal 
         open={isWaitlistModalOpen}
         onOpenChange={setIsWaitlistModalOpen}
+      />
+      
+      <GetGuideModal 
+        open={isGetGuideModalOpen}
+        onOpenChange={setIsGetGuideModalOpen}
       />
     </div>
   );

@@ -12,12 +12,12 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle } from "lucide-react";
 
-interface JoinWaitlistModalProps {
+interface GetGuideModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps) => {
+export const GetGuideModal = ({ open, onOpenChange }: GetGuideModalProps) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
@@ -73,9 +73,9 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
         {!isSuccess ? (
           <>
             <DialogHeader>
-              <DialogTitle>Join the Waitlist</DialogTitle>
+              <DialogTitle>Get Your LinkedIn Essentials Guide</DialogTitle>
               <DialogDescription>
-                Join our waitlist and get instant access to our LinkedIn Essentials one-pager - 
+                Get instant access to our LinkedIn Essentials one-pager and join our waitlist - 
                 the same core teachings our clients are using to get results on LinkedIn.
               </DialogDescription>
             </DialogHeader>
@@ -109,7 +109,7 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
                 className="w-full" 
                 disabled={!email}
               >
-                Join Waitlist
+                Get Guide & Join Waitlist
               </Button>
             </form>
           </>
@@ -122,7 +122,7 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
             <div className="space-y-2">
               <DialogTitle>Check your inbox!</DialogTitle>
               <DialogDescription>
-                Your guide is on the way.<br />You should receive it within the next few minutes.
+                Your LinkedIn Essentials guide is on the way.<br />You should receive it within the next few minutes.
               </DialogDescription>
             </div>
             

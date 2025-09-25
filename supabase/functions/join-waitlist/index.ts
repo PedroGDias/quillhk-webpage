@@ -15,7 +15,7 @@ function generateEmailHTML(name?: string): string {
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Your LinkedIn guide is here! 🚀</title>
+        <title>Your LinkedIn Essentials one-pager</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
       </head>
       <body style="margin: 0; padding: 0; background-color: #f6f9fc; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
@@ -25,7 +25,7 @@ function generateEmailHTML(name?: string): string {
           </div>
           
           <h1 style="color: #333; font-size: 28px; font-weight: 800; margin: 32px 20px 16px; text-align: center; letter-spacing: -0.05em;">
-            Your LinkedIn guide is here! 🚀
+            Your LinkedIn Essentials one-pager
           </h1>
           
           <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
@@ -33,27 +33,23 @@ function generateEmailHTML(name?: string): string {
           </p>
           
           <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
-            Thanks for joining our waitlist! As promised, here's your copy of 
-            "The 5 Principles for Magnetic LinkedIn Leadership" - the same framework 
-            our clients use to transform their LinkedIn presence.
+            Thanks for joining our waitlist!
           </p>
           
           <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
-            This guide reveals how industry leaders create compelling content that 
-            attracts both clients and top talent, without spending hours writing posts.
+            As promised, here's your copy of our LinkedIn Essentials one-pager - the same core teachings our clients are using to get results on LinkedIn.
           </p>
           
-          <div style="text-align: center; margin: 32px 0;">
-            <a href="https://ignite-lead-drive.vercel.app/guides/crafted-welcome-guide.pdf" 
-               style="background-color: #157dc8; border-radius: 8px; color: #fff; font-size: 16px; font-weight: 600; text-decoration: none; text-align: center; display: inline-block; padding: 12px 24px; margin: 0 auto; font-family: 'Inter', sans-serif;">
-              Download Your Guide
-            </a>
-          </div>
+          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
+            Ready to put these principles into action?
+          </p>
           
           <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
-            Ready to put these principles into action? Book a demo 
-            to see how Crafted can help you implement these strategies with our 
-            AI-powered content system and 1:1 mentoring.
+            Book a demo to meet our founder and find out how he used them to generate 10 million views in just 3 months, without a single ad.
+          </p>
+          
+          <p style="color: #555; font-size: 16px; line-height: 26px; margin: 16px 20px; font-weight: 400;">
+            If you're looking to grow B2B revenue or hire through LinkedIn, our mentoring program is probably a great fit.
           </p>
           
           <div style="text-align: center; margin: 32px 0;">
@@ -64,8 +60,8 @@ function generateEmailHTML(name?: string): string {
           </div>
           
           <p style="color: #666; font-size: 14px; line-height: 24px; margin: 32px 20px 0; font-weight: 400;">
-            Best regards,<br />
-            The Crafted Team
+            Have a cool week,<br />
+            João and Pedro
           </p>
         </div>
       </body>
@@ -137,12 +133,12 @@ async function sendWelcomeEmail(email: string, name?: string) {
     const emailResponse = await resend.emails.send({
       from: "Crafted <welcome@noreply.gocrafted.com>",
       to: [email],
-      subject: "Welcome to Crafted - Your LinkedIn Guide is Here!",
+      subject: "Your LinkedIn Essentials one-pager",
       html: emailHtml,
       attachments: [
         {
-          filename: "Crafted - Lead Magnet 01.pdf",
-          path: "https://ignite-lead-drive.vercel.app/guides/crafted-welcome-guide.pdf",
+          filename: "Crafted - Lead Magnet.pdf",
+          path: "https://gocrafted.com/guides/Crafted - Lead Magnet.pdf",
         },
       ],
     });

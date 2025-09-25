@@ -3,10 +3,10 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import craftedLogo from "@/assets/crafted_logo_highres_blue_v2.png";
 
 interface FinalCtaProps {
-  onJoinWaitlist: () => void;
+  onGetGuide: () => void;
 }
 
-export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
+export const FinalCta = ({ onGetGuide }: FinalCtaProps) => {
   const titleAnimation = useScrollAnimation({ delay: 150 });
   const subtitleAnimation = useScrollAnimation({ delay: 250 });
   const buttonsAnimation = useScrollAnimation({ delay: 350 });
@@ -45,7 +45,7 @@ export const FinalCta = ({ onJoinWaitlist }: FinalCtaProps) => {
               <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <Button 
                   size="lg" 
-                  onClick={onJoinWaitlist}
+                  onClick={onGetGuide}
                   className="text-sm sm:text-base font-semibold px-6 py-3 w-full sm:w-auto"
                 >
                   Get LinkedIn Essentials Guide

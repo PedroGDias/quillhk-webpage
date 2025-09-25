@@ -18,32 +18,24 @@ interface GuideEmailProps {
 export const GuideEmail = ({ name }: GuideEmailProps) => (
   <Html>
     <Head />
-    <Preview>Your guide: The 5 Principles for magnetic LinkedIn leadership</Preview>
+    <Preview>Your LinkedIn Essentials one-pager</Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
           <Text style={logo}>Crafted</Text>
         </Section>
         <Heading style={h1}>
-          Your LinkedIn guide is here! 🚀
+          Your LinkedIn Essentials one-pager
         </Heading>
         <Text style={text}>
           {name ? `Hi ${name},` : 'Hi there,'}
         </Text>
         <Text style={text}>
-          Thanks for joining our waitlist! As promised, here's your copy of 
-          "The 5 Principles for Magnetic LinkedIn Leadership" - the same framework 
-          our clients use to transform their LinkedIn presence.
+          Thanks for joining our waitlist!
         </Text>
         <Text style={text}>
-          This guide reveals how industry leaders create compelling content that 
-          attracts both clients and top talent, without spending hours writing posts.
+          As promised, here's your copy of our LinkedIn Essentials one-pager - the same core teachings our clients are using to get results on LinkedIn.
         </Text>
-        <Section style={buttonContainer}>
-          <Button style={button} href="https://your-domain.com/guides/crafted-5-principles.pdf">
-            Download Your Guide
-          </Button>
-        </Section>
         <Text style={text}>
           Ready to put these principles into action? Book a free strategy call 
           to see how Crafted can help you implement these strategies with our 
