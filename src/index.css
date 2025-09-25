@@ -131,7 +131,7 @@ All colors MUST be HSL.
   }
   
   .animate-scroll-mobile {
-    animation: scroll-mobile 15s linear infinite;
+    animation: scroll-mobile 10s linear infinite;
   }
   
   .animate-float {
@@ -148,6 +148,16 @@ All colors MUST be HSL.
   
   .pause {
     animation-play-state: paused;
+  }
+
+  /* Hide scrollbars for carousel */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
   
   .bg-gradient-subtle {
@@ -249,7 +259,7 @@ All colors MUST be HSL.
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-33.333%);
+    transform: translateX(-20%);
   }
 }
 

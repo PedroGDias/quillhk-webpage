@@ -106,17 +106,19 @@ export const PersonalBrands = ({ brands = defaultBrands }: PersonalBrandsProps) 
             </h2>
           </div>
           
-          <div ref={logosAnimation.ref} className={logosAnimation.className}>
+          <div ref={logosAnimation.ref} className={`${logosAnimation.className} mt-6 sm:mt-0`}>
             {/* Mobile: Carousel with 3 visible items */}
             <div 
-              className="sm:hidden overflow-hidden max-w-sm mx-auto"
+              className="sm:hidden overflow-x-auto max-w-sm mx-auto scrollbar-hide"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               <div 
                 className={`flex gap-4 ${
                   isHovered ? 'pause' : 'animate-scroll-mobile'
                 }`}
+                style={{ minWidth: 'max-content' }}
               >
                 {duplicatedBrands.map((brand, index) => (
                   <div 
