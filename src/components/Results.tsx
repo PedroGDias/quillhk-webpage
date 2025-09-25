@@ -54,10 +54,10 @@ export const Results = () => {
             return (
               <div key={index} ref={statAnimation.ref} className={statAnimation.className}>
                 <div className="text-center p-3 sm:p-4 lg:p-6">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gradient mb-1 sm:mb-2 font-ultra-thick">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-gradient mb-0.5 font-ultra-thick">
                     {stat.value}
                   </div>
-                  <div className="text-base sm:text-lg lg:text-xl font-semibold text-foreground mb-2 sm:mb-3">
+                  <div className="text-base sm:text-lg lg:text-xl font-semibold text-foreground mb-1">
                     {stat.label}
                   </div>
                   <p className="text-muted-foreground text-xs sm:text-sm leading-tight">
