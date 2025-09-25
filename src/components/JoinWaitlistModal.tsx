@@ -72,29 +72,29 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
       <DialogContent className="sm:max-w-md max-w-[calc(100vw-2rem)]">
         {!isSuccess ? (
           <>
-            <DialogHeader>
-              <DialogTitle className="text-lg sm:text-xl">Join the Waitlist</DialogTitle>
-              <DialogDescription className="text-sm">
+            <DialogHeader className="space-y-0.5">
+              <DialogTitle className="text-sm sm:text-lg">Join the Waitlist</DialogTitle>
+              <DialogDescription className="text-xs">
                 Join our waitlist and get instant access to our LinkedIn Essentials one-pager - 
                 the same core teachings our clients are using to get results on LinkedIn.
               </DialogDescription>
             </DialogHeader>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm">Name (optional)</Label>
+            <form onSubmit={handleSubmit} className="space-y-1.5">
+              <div className="space-y-0.5">
+                <Label htmlFor="name" className="text-xs">Name (optional)</Label>
                 <Input
                   id="name"
                   type="text"
                   placeholder="Your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="h-10 text-base" // Prevent zoom on iOS
+                  className="h-7 text-xs"
                 />
               </div>
               
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm">Email *</Label>
+              <div className="space-y-0.5">
+                <Label htmlFor="email" className="text-xs">Email *</Label>
                 <Input
                   id="email"
                   type="email"
@@ -102,13 +102,13 @@ export const JoinWaitlistModal = ({ open, onOpenChange }: JoinWaitlistModalProps
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="h-10 text-base" // Prevent zoom on iOS
+                  className="h-7 text-xs"
                 />
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full h-11 text-base" 
+                className="w-full h-7 text-sm" 
                 disabled={!email}
               >
                 Join Waitlist

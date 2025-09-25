@@ -225,6 +225,12 @@ All colors MUST be HSL.
     select {
       font-size: 16px !important;
     }
+
+    /* Make placeholder text smaller */
+    input::placeholder,
+    textarea::placeholder {
+      font-size: 12px !important;
+    }
   }
 }
 
