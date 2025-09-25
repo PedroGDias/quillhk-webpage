@@ -162,6 +162,9 @@ All colors MUST be HSL.
     /* Override stroke and shadow to prevent artifacts on gradient text, even when inherited */
     -webkit-text-stroke: 0px transparent !important;
     text-shadow: none !important;
+    /* Fix glyph overhang clipping */
+    overflow: visible !important;
+    padding-right: 0.08em !important;
   }
 
   /* Scroll snap behavior */
@@ -187,6 +190,8 @@ All colors MUST be HSL.
     letter-spacing: -0.06em;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
     -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.1);
+    /* Fix glyph overhang clipping */
+    overflow: visible !important;
   }
 
   /* Extra thick class for maximum impact */
@@ -196,7 +201,8 @@ All colors MUST be HSL.
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.15) !important;
     -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1) !important;
     transform: scale(1.02) !important;
-    /* Removed padding-right to prevent gray tips on gradient text */
+    /* Fix glyph overhang clipping */
+    overflow: visible !important;
   }
 
   /* Make Crafted text by logo match titles */

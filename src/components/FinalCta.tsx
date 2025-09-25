@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import craftedLogo from "@/assets/crafted_logo_highres_blue_v2.png";
+import { FloatingLinkedInLogos } from "@/components/FloatingLinkedInLogos";
 
 interface FinalCtaProps {
   onGetGuide: () => void;
@@ -20,6 +21,8 @@ export const FinalCta = ({ onGetGuide }: FinalCtaProps) => {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
+      
+      <FloatingLinkedInLogos />
       
       {/* CTA Content */}
       <div className="flex-1 flex items-center justify-center">
