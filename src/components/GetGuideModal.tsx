@@ -69,12 +69,12 @@ export const GetGuideModal = ({ open, onOpenChange }: GetGuideModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md max-w-[calc(100vw-2rem)]">
         {!isSuccess ? (
           <>
             <DialogHeader>
-              <DialogTitle>Get Your LinkedIn Essentials Guide</DialogTitle>
-              <DialogDescription>
+              <DialogTitle className="text-lg sm:text-xl">Get Your LinkedIn Essentials Guide</DialogTitle>
+              <DialogDescription className="text-sm">
                 Get instant access to our LinkedIn Essentials one-pager and join our waitlist - 
                 the same core teachings our clients are using to get results on LinkedIn.
               </DialogDescription>
@@ -82,18 +82,19 @@ export const GetGuideModal = ({ open, onOpenChange }: GetGuideModalProps) => {
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Name (optional)</Label>
+                <Label htmlFor="name" className="text-sm">Name (optional)</Label>
                 <Input
                   id="name"
                   type="text"
                   placeholder="Your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  className="h-10 text-base" // Prevent zoom on iOS
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
+                <Label htmlFor="email" className="text-sm">Email *</Label>
                 <Input
                   id="email"
                   type="email"
@@ -101,12 +102,13 @@ export const GetGuideModal = ({ open, onOpenChange }: GetGuideModalProps) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="h-10 text-base" // Prevent zoom on iOS
                 />
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full" 
+                className="w-full h-11 text-base" 
                 disabled={!email}
               >
                 Get Guide & Join Waitlist
@@ -114,20 +116,20 @@ export const GetGuideModal = ({ open, onOpenChange }: GetGuideModalProps) => {
             </form>
           </>
         ) : (
-          <div className="text-center space-y-6 py-4">
+          <div className="text-center space-y-4 sm:space-y-6 py-2 sm:py-4">
             <div className="flex justify-center">
-              <CheckCircle className="w-16 h-16" style={{ color: '#157dc8' }} />
+              <CheckCircle className="w-12 h-12 sm:w-16 sm:h-16" style={{ color: '#157dc8' }} />
             </div>
             
             <div className="space-y-2">
-              <DialogTitle>Check your inbox!</DialogTitle>
-              <DialogDescription>
+              <DialogTitle className="text-lg sm:text-xl">Check your inbox!</DialogTitle>
+              <DialogDescription className="text-sm">
                 Your LinkedIn Essentials guide is on the way.<br />You should receive it within the next few minutes.
               </DialogDescription>
             </div>
             
             <div className="space-y-3">
-              <Button asChild>
+              <Button asChild className="w-full h-11 text-base">
                 <a 
                   href="https://calendly.com/underdogfounders/30min" 
                   target="_blank" 

@@ -214,6 +214,40 @@ All colors MUST be HSL.
     color: black !important;
     font-size: 1.5rem !important;
   }
+
+  /* Mobile modal improvements */
+  @media (max-width: 640px) {
+    /* Prevent zoom on iOS when focusing inputs */
+    input[type="text"], 
+    input[type="email"], 
+    input[type="tel"], 
+    textarea, 
+    select {
+      font-size: 16px !important;
+    }
+
+    /* Ensure modal is properly positioned on mobile */
+    [data-radix-dialog-content] {
+      position: fixed !important;
+      top: 5vh !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      max-height: 90vh !important;
+      overflow-y: auto !important;
+      margin: 1rem !important;
+      width: calc(100vw - 2rem) !important;
+    }
+
+    /* Improve mobile keyboard handling */
+    @supports (-webkit-touch-callout: none) {
+      /* iOS specific fixes */
+      [data-radix-dialog-content] {
+        /* Use safe area for iOS devices */
+        top: max(5vh, env(safe-area-inset-top, 20px)) !important;
+        max-height: calc(100vh - env(safe-area-inset-top, 20px) - env(safe-area-inset-bottom, 20px) - 10vh) !important;
+      }
+    }
+  }
 }
 
 /* Keyframes for animations */
