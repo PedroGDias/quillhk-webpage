@@ -64,7 +64,7 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
       {/* Main Content - Centered and takes up available space */}
       <div className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
-          <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+          <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8 max-w-7xl mx-auto">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight font-ultra-thick">
                 Convert your senior leaders into{" "}

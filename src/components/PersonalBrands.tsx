@@ -96,7 +96,7 @@ export const PersonalBrands = ({ brands = defaultBrands }: PersonalBrandsProps) 
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center w-full max-w-7xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 lg:mb-8 font-ultra-thick text-center">
               Personal brands using our <span className="text-gradient">software and 1:1 mentoring</span>

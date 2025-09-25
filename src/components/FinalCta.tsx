@@ -24,7 +24,7 @@ export const FinalCta = ({ onGetGuide }: FinalCtaProps) => {
       {/* CTA Content */}
       <div className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
-          <div className="text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+          <div className="text-center space-y-6 sm:space-y-8 max-w-7xl mx-auto">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-ultra-thick">
                 Ready to{" "}

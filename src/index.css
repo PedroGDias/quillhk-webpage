@@ -159,6 +159,9 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* Override stroke and shadow to prevent artifacts on gradient text, even when inherited */
+    -webkit-text-stroke: 0px transparent !important;
+    text-shadow: none !important;
   }
 
   /* Scroll snap behavior */
@@ -193,7 +196,7 @@ All colors MUST be HSL.
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.15) !important;
     -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1) !important;
     transform: scale(1.02) !important;
-    padding-right: 0.1em !important; /* Add small padding to prevent cutoff */
+    /* Removed padding-right to prevent gray tips on gradient text */
   }
 
   /* Make Crafted text by logo match titles */

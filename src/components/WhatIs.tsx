@@ -27,7 +27,7 @@ export const WhatIs = () => {
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-12 sm:mb-16 w-full max-w-7xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-ultra-thick px-4">
               Crafted builds a <span className="text-gradient">content-first culture</span><br className="hidden sm:block" />
@@ -46,7 +46,7 @@ export const WhatIs = () => {
           {/* What Crafted Is */}
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={leftCardTitleAnimation.ref} className={leftCardTitleAnimation.className}>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2 mb-1">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1">
                 What Crafted <span className="text-gradient">Is</span>:
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
@@ -82,7 +82,7 @@ export const WhatIs = () => {
           {/* What Crafted Is Not */}
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={rightCardTitleAnimation.ref} className={rightCardTitleAnimation.className}>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground flex items-center gap-2 mb-1">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1">
                 What Crafted <span className="text-gradient">Is Not</span>:
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
