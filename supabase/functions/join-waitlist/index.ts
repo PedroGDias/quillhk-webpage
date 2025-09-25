@@ -138,7 +138,7 @@ async function sendWelcomeEmail(email: string, name?: string) {
       attachments: [
         {
           filename: "Crafted - Lead Magnet.pdf",
-          path: "https://gocrafted.com/guides/Crafted - Lead Magnet.pdf",
+          path: "https://ignite-lead-drive.vercel.app/guides/Crafted%20-%20Lead%20Magnet.pdf",
         },
       ],
     });
