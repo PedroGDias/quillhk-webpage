@@ -22,7 +22,7 @@ export const GuideEmail = ({ name }: GuideEmailProps) => (
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
-          <Text style={logo}>Crafted</Text>
+          <Text style={logo}>Quill HK</Text>
         </Section>
         <Heading style={h1}>
           Your LinkedIn Essentials one-pager
@@ -38,7 +38,7 @@ export const GuideEmail = ({ name }: GuideEmailProps) => (
         </Text>
         <Text style={text}>
           Ready to put these principles into action? Book a free strategy call 
-          to see how Crafted can help you implement these strategies with our 
+          to see how Quill HK can help you implement these strategies with our 
           AI-powered content system and 1:1 mentoring.
         </Text>
         <Section style={buttonContainer}>
@@ -48,7 +48,7 @@ export const GuideEmail = ({ name }: GuideEmailProps) => (
         </Section>
         <Text style={footer}>
           Best regards,<br />
-          The Crafted Team
+          The Quill HK Team
         </Text>
       </Container>
     </Body>
@@ -77,7 +77,7 @@ const logoContainer = {
 };
 
 const logo = {
-  color: '#1d4ed8',
+  color: '#fe390c',
   fontSize: '24px',
   fontWeight: '700',
   margin: '0',
@@ -104,7 +104,7 @@ const buttonContainer = {
 };
 
 const button = {
-  backgroundColor: '#1d4ed8',
+  backgroundColor: '#fe390c',
   borderRadius: '8px',
   color: '#fff',
   fontSize: '16px',
@@ -118,9 +118,9 @@ const button = {
 
 const secondaryButton = {
   backgroundColor: 'transparent',
-  border: '2px solid #1d4ed8',
+  border: '2px solid #fe390c',
   borderRadius: '8px',
-  color: '#1d4ed8',
+  color: '#fe390c',
   fontSize: '16px',
   fontWeight: '600',
   textDecoration: 'none',

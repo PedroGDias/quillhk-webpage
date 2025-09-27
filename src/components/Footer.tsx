@@ -1,4 +1,4 @@
-import craftedLogo from "@/assets/crafted-logo.webp";
+import quillLogo from "@/assets/quill-logo-256x256.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,11 +9,11 @@ export const Footer = () => {
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="flex items-center gap-2">
             <img 
-              src={craftedLogo} 
-              alt="Crafted logo" 
+              src={quillLogo} 
+              alt="Quill HK logo" 
               className="w-6 h-6"
             />
-            <span className="font-bold text-foreground">Crafted</span>
+            <span className="font-bold text-foreground">Quill HK</span>
           </div>
           
           <p className="text-sm text-muted-foreground max-w-md">
@@ -21,7 +21,7 @@ export const Footer = () => {
           </p>
           
           <div className="text-sm text-muted-foreground">
-            © {currentYear} Crafted. All rights reserved.
+            © {currentYear} Quill HK. All rights reserved.
           </div>
         </div>
       </div>

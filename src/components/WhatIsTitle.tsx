@@ -18,13 +18,13 @@ export const WhatIsTitle = () => {
         <div className="text-center w-full max-w-7xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 font-ultra-thick">
-              Crafted builds a <span className="text-gradient">content-first culture</span><br className="hidden sm:block" />
+              Quill HK builds a <span className="text-gradient">content-first culture</span><br className="hidden sm:block" />
               <span className="sm:hidden"> </span>in your leadership team.
             </h2>
           </div>
           <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Crafted delivers the software and 1:1 mentoring your leadership team needs to build a long-term 
+              Quill HK delivers the software and 1:1 mentoring your leadership team needs to build a long-term 
               LinkedIn presence, in just 10 minutes per post.
             </p>
           </div>

@@ -29,11 +29,11 @@ export const WhatIsDesktop = () => {
       
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
-          {/* What Crafted Is */}
+          {/* What Quill HK Is */}
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={leftCardTitleAnimation.ref} className={leftCardTitleAnimation.className}>
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-1 font-ultra-thick text-center sm:text-left">
-                What Crafted <span className="text-gradient">Is</span>
+                What Quill HK <span className="text-gradient">Is</span>
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
             </div>
@@ -65,11 +65,11 @@ export const WhatIsDesktop = () => {
             </div>
           </div>
           
-          {/* What Crafted Is Not */}
+          {/* What Quill HK Is Not */}
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={rightCardTitleAnimation.ref} className={rightCardTitleAnimation.className}>
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-1 font-ultra-thick text-center sm:text-left">
-                What Crafted <span className="text-gradient">Is Not</span>
+                What Quill HK <span className="text-gradient">Is Not</span>
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
             </div>

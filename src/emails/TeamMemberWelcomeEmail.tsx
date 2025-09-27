@@ -36,7 +36,7 @@ const logoContainer = {
 };
 
 const logo = {
-  color: '#157dc8',
+  color: '#fe390c',
   fontSize: '24px',
   fontWeight: 300,
   margin: '0',
@@ -62,7 +62,7 @@ const text = {
 
 const highlightBox = {
   backgroundColor: '#f8fafc',
-  borderLeft: '4px solid #157dc8',
+  borderLeft: '4px solid #fe390c',
   margin: '24px 20px',
   padding: '20px',
   borderRadius: '0 8px 8px 0',
@@ -82,7 +82,7 @@ const buttonContainer = {
 };
 
 const button = {
-  backgroundColor: '#157dc8',
+  backgroundColor: '#fe390c',
   borderRadius: '8px',
   color: '#fff',
   fontSize: '16px',
@@ -106,14 +106,14 @@ const footer = {
 export const TeamMemberWelcomeEmail = ({ name, companyName }: TeamMemberWelcomeEmailProps) => (
   <Html>
     <Head />
-    <Preview>Welcome to Crafted</Preview>
+    <Preview>Welcome to Quill HK</Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logoContainer}>
-          <Text style={logo}>Crafted</Text>
+          <Text style={logo}>Quill HK</Text>
         </Section>
         <Heading style={h1}>
-          Welcome to Crafted
+          Welcome to Quill HK
         </Heading>
         <Text style={text}>
           Hi {name},
@@ -166,7 +166,7 @@ export const TeamMemberWelcomeEmail = ({ name, companyName }: TeamMemberWelcomeE
         
         <Text style={footer}>
           Have a great day,<br />
-          The Crafted Team
+          The Quill HK Team
         </Text>
       </Container>
     </Body>

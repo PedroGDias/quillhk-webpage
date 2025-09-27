@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import craftedLogo from "@/assets/crafted_logo_highres_blue_v2.png";
+import quillLogo from "@/assets/quill-logo-256x256.png";
 import { FloatingLinkedInLogos } from "@/components/FloatingLinkedInLogos";
 
 interface FinalCtaProps {
@@ -79,12 +79,12 @@ export const FinalCta = ({ onGetGuide }: FinalCtaProps) => {
           <div className="container mx-auto px-4 sm:px-8 lg:px-16 py-2 sm:py-3">
             <div className="flex items-center justify-center gap-1 text-center">
               <img 
-                src={craftedLogo} 
-                alt="Crafted logo" 
+                src={quillLogo} 
+                alt="Quill HK logo" 
                 className="w-4 h-4 sm:w-5 sm:h-5"
               />
               <div className="text-[10px] sm:text-xs text-muted-foreground">
-                {currentYear} Crafted. All rights reserved.
+                {currentYear} Quill HK. All rights reserved.
               </div>
             </div>
           </div>

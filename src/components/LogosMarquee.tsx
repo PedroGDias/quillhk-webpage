@@ -1,36 +1,39 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import sybillLogo from "@/assets/sybill-logo.jpg";
-import yulifeLogo from "@/assets/yulife-logo.webp";
+import dittoLogo from "@/assets/ditto logo.webp";
+import marsshotLogo from "@/assets/marsshot.png";
+import n8nLogo from "@/assets/n8n logo.png";
+import equalFoodLogo from "@/assets/perfil_equal_food-01-removebg-preview_1000x1000.webp";
+import wwfLogo from "@/assets/wwf-logo.png";
 
-interface PersonBrand {
+interface Brand {
   name: string;
-  role: string;
-  company: string;
   logoSrc: string;
 }
 
 interface LogosMarqueeProps {
-  brands?: PersonBrand[];
+  brands?: Brand[];
 }
 
-const defaultBrands: PersonBrand[] = [
+const defaultBrands: Brand[] = [
   { 
-    name: "Nishit Asnani", 
-    role: "Co-Founder", 
-    company: "Sybill", 
-    logoSrc: sybillLogo 
+    name: "Ditto", 
+    logoSrc: dittoLogo 
   },
   { 
-    name: "Dany Jradi", 
-    role: "Founding PM", 
-    company: "Sybill", 
-    logoSrc: sybillLogo 
+    name: "Marsshot", 
+    logoSrc: marsshotLogo 
   },
   { 
-    name: "Lewis Stock", 
-    role: "VP of Sales", 
-    company: "YuLife", 
-    logoSrc: yulifeLogo 
+    name: "n8n", 
+    logoSrc: n8nLogo 
+  },
+  { 
+    name: "Equal Food", 
+    logoSrc: equalFoodLogo 
+  },
+  { 
+    name: "WWF", 
+    logoSrc: wwfLogo 
   },
 ];
 
@@ -49,7 +52,7 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
         <div className="flex flex-col items-center">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-xs font-light text-center text-muted-foreground mb-3 px-4">
-              Personal brands using our software and 1:1 mentoring
+              Brands using our software and 1:1 mentoring
             </h2>
           </div>
           
@@ -67,16 +70,13 @@ export const LogosMarquee = ({ brands = defaultBrands }: LogosMarqueeProps) => {
                     <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-1">
                       <img 
                         src={brand.logoSrc} 
-                        alt={`${brand.company} logo`}
+                        alt={`${brand.name} logo`}
                         className="w-5 h-5 sm:w-7 sm:h-7 object-cover rounded-md scale-110"
                       />
                     </div>
                     <h3 className="font-bold text-foreground text-xs mb-0 leading-tight">
                       {brand.name}
                     </h3>
-                    <p className="text-[9px] sm:text-[10px] text-muted-foreground leading-tight">
-                      {brand.role}, {brand.company}
-                    </p>
                   </div>
                 </div>
               );

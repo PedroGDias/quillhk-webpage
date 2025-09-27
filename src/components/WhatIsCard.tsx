@@ -31,7 +31,7 @@ export const WhatIsCard = ({ type, title, items }: WhatIsCardProps) => {
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-1 font-ultra-thick text-center sm:text-left">
-                What Crafted <span className="text-gradient">{title}</span>
+                What Quill HK <span className="text-gradient">{title}</span>
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
             </div>

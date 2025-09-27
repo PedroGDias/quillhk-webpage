@@ -33,24 +33,24 @@ export const WhatIs = () => {
         <div className="text-center mb-12 sm:mb-16 w-full max-w-7xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-ultra-thick px-4">
-              Crafted builds a <span className="text-gradient">content-first culture</span><br className="hidden sm:block" />
+              Quill HK builds a <span className="text-gradient">content-first culture</span><br className="hidden sm:block" />
               <span className="sm:hidden"> </span>in your leadership team.
             </h2>
           </div>
           <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
-              Crafted delivers the mentoring and software your leadership team needs to build a long-term 
+              Quill HK delivers the mentoring and software your leadership team needs to build a long-term 
               LinkedIn presence, in just 10 minutes per post.
             </p>
           </div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          {/* What Crafted Is */}
+          {/* What Quill HK Is */}
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={leftCardTitleAnimation.ref} className={leftCardTitleAnimation.className}>
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1">
-                What Crafted <span className="text-gradient">Is</span>:
+                What Quill HK <span className="text-gradient">Is</span>:
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
             </div>
@@ -82,11 +82,11 @@ export const WhatIs = () => {
             </div>
           </div>
           
-          {/* What Crafted Is Not */}
+          {/* What Quill HK Is Not */}
           <div className="p-4 sm:p-6 lg:p-8">
             <div ref={rightCardTitleAnimation.ref} className={rightCardTitleAnimation.className}>
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1">
-                What Crafted <span className="text-gradient">Is Not</span>:
+                What Quill HK <span className="text-gradient">Is Not</span>:
               </h3>
               <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
             </div>

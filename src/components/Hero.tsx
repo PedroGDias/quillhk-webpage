@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import craftedLogo from "@/assets/crafted_logo_highres_blue_v2.png";
+import quillLogo from "@/assets/quill-logo-256x256.png";
 import { FloatingLinkedInLogos } from "@/components/FloatingLinkedInLogos";
 
 interface HeroProps {
@@ -74,11 +74,11 @@ export const Hero = ({ onJoinWaitlist }: HeroProps) => {
       <div ref={mobileLogoAnimation.ref} className={`${mobileLogoAnimation.className} sm:hidden text-center py-2 z-10`}>
         <div className="inline-flex items-center gap-0.5">
           <img 
-            src={craftedLogo} 
-            alt="Crafted logo" 
+            src={quillLogo} 
+            alt="Quill HK logo" 
             className="w-8 h-8"
           />
-          <span className="text-[4px] crafted-brand">Crafted</span>
+          <span className="text-[4px] quillhk-brand">Quill HK</span>
         </div>
       </div>
     </section>

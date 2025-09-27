@@ -11,7 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Trash2, Plus, Building2, Users, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import craftedLogo from '@/assets/crafted_logo_highres_blue_v2.png';
+import quillLogo from '@/assets/quill-logo-256x256.png';
 import { FloatingLinkedInLogos } from '@/components/FloatingLinkedInLogos';
 
 interface Company {
@@ -493,11 +493,11 @@ const Admin = () => {
             <CardHeader className="text-center pb-3">
               <div className="mx-auto mb-3 flex items-center gap-1">
                 <img 
-                  src={craftedLogo} 
-                  alt="Crafted logo" 
+                  src={quillLogo} 
+                  alt="Quill HK logo" 
                   className="w-8 h-8"
                 />
-                <span className="text-lg sm:text-xl crafted-brand">Crafted</span>
+                <span className="text-lg sm:text-xl quillhk-brand">Quill HK</span>
               </div>
               <CardTitle className="text-lg font-ultra-thick">Admin Access</CardTitle>
               <CardDescription className="text-sm">
@@ -541,11 +541,11 @@ const Admin = () => {
           <div className="mb-6">
             <div className="flex items-center justify-center sm:justify-start gap-1 mb-3">
               <img 
-                src={craftedLogo} 
-                alt="Crafted logo" 
+                src={quillLogo} 
+                alt="Quill HK logo" 
                 className="w-8 h-8"
               />
-              <span className="text-lg sm:text-xl crafted-brand">Crafted</span>
+              <span className="text-lg sm:text-xl quillhk-brand">Quill HK</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-ultra-thick text-foreground mb-2 text-center">
               Admin Panel

@@ -1,83 +1,41 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useEffect, useState } from "react";
-import sybillLogo from "@/assets/sybill-logo.jpg";
-import yulifeLogo from "@/assets/yulife-logo.webp";
-import maisaLogo from "@/assets/maisa logo.avif";
-import dataScicoLogo from "@/assets/Data Scico Logo.png";
-import marriottHarrisonLogo from "@/assets/marriott_harrison_logo.jpeg";
+import dittoLogo from "@/assets/ditto logo.webp";
+import marsshotLogo from "@/assets/marsshot.png";
+import n8nLogo from "@/assets/n8n logo.png";
+import equalFoodLogo from "@/assets/perfil_equal_food-01-removebg-preview_1000x1000.webp";
+import wwfLogo from "@/assets/wwf-logo.png";
 import { FloatingLinkedInLogos } from "@/components/FloatingLinkedInLogos";
 
-interface PersonBrand {
+interface Brand {
   name: string;
-  role: string;
-  company: string;
   logoSrc: string;
 }
 
 interface PersonalBrandsProps {
-  brands?: PersonBrand[];
+  brands?: Brand[];
 }
 
-const defaultBrands: PersonBrand[] = [
+const defaultBrands: Brand[] = [
   { 
-    name: "Nishit Asnani", 
-    role: "Co-Founder", 
-    company: "Sybill", 
-    logoSrc: sybillLogo 
+    name: "Ditto", 
+    logoSrc: dittoLogo 
   },
   { 
-    name: "Soumyarka Mondal", 
-    role: "CTO", 
-    company: "Sybill", 
-    logoSrc: sybillLogo 
+    name: "Marsshot", 
+    logoSrc: marsshotLogo 
   },
   { 
-    name: "Dany Jradi", 
-    role: "Head of Product", 
-    company: "Sybill", 
-    logoSrc: sybillLogo 
+    name: "n8n", 
+    logoSrc: n8nLogo 
   },
   { 
-    name: "Lewis Stock", 
-    role: "VP of Sales", 
-    company: "YuLife", 
-    logoSrc: yulifeLogo 
+    name: "Equal Food", 
+    logoSrc: equalFoodLogo 
   },
   { 
-    name: "Lauren Berkemeyer", 
-    role: "CMO", 
-    company: "YuLife", 
-    logoSrc: yulifeLogo 
-  },
-  { 
-    name: "Gabriel Churchill", 
-    role: "Product Lead", 
-    company: "YuLife", 
-    logoSrc: yulifeLogo 
-  },
-  { 
-    name: "Jochen Doppelhammer", 
-    role: "COO", 
-    company: "Maisa AI", 
-    logoSrc: maisaLogo 
-  },
-  { 
-    name: "Gur Aminadav", 
-    role: "CEO", 
-    company: "Data Scico", 
-    logoSrc: dataScicoLogo 
-  },
-  { 
-    name: "Genady Trifon", 
-    role: "CTO", 
-    company: "Data Scico", 
-    logoSrc: dataScicoLogo 
-  },
-  { 
-    name: "Dianne Skurray", 
-    role: "CMO", 
-    company: "Marriot Harrison", 
-    logoSrc: marriottHarrisonLogo 
+    name: "WWF", 
+    logoSrc: wwfLogo 
   },
 ];
 
@@ -102,7 +60,7 @@ export const PersonalBrands = ({ brands = defaultBrands }: PersonalBrandsProps) 
         <div className="flex flex-col items-center w-full max-w-7xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 lg:mb-8 font-ultra-thick text-center">
-              Personal brands using our <span className="text-gradient">software and 1:1 mentoring</span>
+              Brands using our <span className="text-gradient">software and 1:1 mentoring</span>
             </h2>
           </div>
           
@@ -128,16 +86,13 @@ export const PersonalBrands = ({ brands = defaultBrands }: PersonalBrandsProps) 
                     <div className="w-8 h-8 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-1">
                       <img 
                         src={brand.logoSrc} 
-                        alt={`${brand.company} logo`}
+                        alt={`${brand.name} logo`}
                         className="w-7 h-7 object-cover rounded-md scale-110"
                       />
                     </div>
                     <h3 className="font-bold text-foreground text-xs mb-0 leading-tight">
                       {brand.name}
                     </h3>
-                    <p className="text-[9px] text-muted-foreground leading-tight">
-                      {brand.role}, {brand.company}
-                    </p>
                   </div>
                 ))}
               </div>
@@ -162,16 +117,13 @@ export const PersonalBrands = ({ brands = defaultBrands }: PersonalBrandsProps) 
                     <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg bg-background flex items-center justify-center overflow-hidden mb-1">
                       <img 
                         src={brand.logoSrc} 
-                        alt={`${brand.company} logo`}
+                        alt={`${brand.name} logo`}
                         className="w-9 h-9 lg:w-11 lg:h-11 object-cover rounded-md scale-110"
                       />
                     </div>
                     <h3 className="font-bold text-foreground text-sm lg:text-sm mb-0 leading-tight">
                       {brand.name}
                     </h3>
-                    <p className="text-[10px] lg:text-xs text-muted-foreground leading-tight">
-                      {brand.role}, {brand.company}
-                    </p>
                   </div>
                 ))}
               </div>
