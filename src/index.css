@@ -112,12 +112,37 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans leading-tight;
-    letter-spacing: -0.02em;
+    @apply bg-background text-foreground leading-tight;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
   
   p {
     @apply leading-snug;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+  }
+
+  /* Remove default blue link colors */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: inherit;
+  }
+
+  /* Ensure all button text is white and Ubuntu Regular */
+  button, button * {
+    color: white !important;
+    font-family: 'Ubuntu', sans-serif !important;
+    font-weight: 400 !important;
+  }
+  
+  .bg-primary, .bg-primary * {
+    color: white !important;
   }
 }
 
@@ -132,6 +157,42 @@ All colors MUST be HSL.
   
   .animate-scroll-mobile {
     animation: scroll-mobile 10s linear infinite;
+  }
+  
+  .animate-scroll-fast {
+    animation: scroll 300s linear infinite;
+  }
+  
+  .animate-scroll-mobile-fast {
+    animation: scroll-mobile 60s linear infinite;
+  }
+  
+  .animate-slow-spin {
+    animation: slow-spin linear infinite;
+  }
+  
+  .animate-slow-pulse {
+    animation: slow-pulse ease-in-out infinite;
+  }
+  
+  .animate-slow-float {
+    animation: slow-float ease-in-out infinite;
+  }
+  
+  .animate-dot-flicker {
+    animation: dot-flicker 3s ease-in-out infinite;
+  }
+  
+  .testimonial-card {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .testimonial-card.fade-in {
+    opacity: 0;
+  }
+  
+  .testimonial-card.fade-in.visible {
+    opacity: 1;
   }
   
   .animate-float {
@@ -194,31 +255,30 @@ All colors MUST be HSL.
     overflow: hidden; /* Hide overflow on the section wrapper; child will scroll */
   }
 
-  /* Make all headings MUCH MUCH thicker */
+  /* Make all headings bold with Ubuntu */
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 1000;
-    letter-spacing: -0.06em;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.1);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     /* Fix glyph overhang clipping */
     overflow: visible !important;
   }
 
   /* Extra thick class for maximum impact */
   .font-ultra-thick {
-    font-weight: 1000 !important;
-    letter-spacing: -0.05em !important;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.15) !important;
-    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1) !important;
-    transform: scale(1.02) !important;
+    font-family: 'Ubuntu', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
     /* Fix glyph overhang clipping */
     overflow: visible !important;
   }
 
-  /* Make Quill HK text by logo match titles */
+
+  /* Make Quill HK text by logo match Ubuntu Medium */
   .quillhk-brand {
-    font-weight: 300 !important;
-    letter-spacing: -0.06em !important;
+    font-family: 'Ubuntu', sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
     text-shadow: none !important;
     -webkit-text-stroke: none !important;
     color: black !important;
@@ -299,5 +359,51 @@ All colors MUST be HSL.
   }
   75% {
     transform: translateY(-35px) rotate(5deg);
+  }
+}
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slow-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+@keyframes slow-float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-25px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+}
+
+@keyframes dot-flicker {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
   }
 }

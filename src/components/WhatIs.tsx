@@ -1,6 +1,5 @@
 import { Check, X } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { FloatingLinkedInLogos } from "@/components/FloatingLinkedInLogos";
 
 export const WhatIs = () => {
   const titleAnimation = useScrollAnimation();
@@ -21,100 +20,79 @@ export const WhatIs = () => {
   const rightLine4Animation = useScrollAnimation({ delay: 1300 });
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-8 sm:py-0">
-      {/* Subtle corner gradient bloom */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5"></div>
-      <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-3xl"></div>
-      
-      <FloatingLinkedInLogos />
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-8 sm:py-0 bg-white">
+      {/* Subtle animated geometric shapes */}
+      <div className="absolute top-16 left-20 w-36 h-36 border-2 border-primary/20 rounded-lg -rotate-12 animate-slow-float" style={{ animationDuration: '19s' }}></div>
+      <div className="absolute bottom-20 right-24 w-20 h-20 border-2 border-primary/20 rounded-full animate-slow-pulse" style={{ animationDuration: '14s' }}></div>
       
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
         <div className="text-center mb-12 sm:mb-16 w-full max-w-7xl mx-auto">
-          <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-ultra-thick px-4">
-              Quill HK builds a <span className="text-gradient">content-first culture</span><br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>in your leadership team.
-            </h2>
-          </div>
-          <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
-              Quill HK delivers the mentoring and software your leadership team needs to build a long-term 
-              LinkedIn presence, in just 10 minutes per post.
-            </p>
-          </div>
+              <div ref={titleAnimation.ref} className={titleAnimation.className}>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-4 font-ultra-thick px-4">
+                  How we <span className="text-gradient">work</span>
+                </h2>
+              </div>
+              <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
+                <p className="text-sm sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 leading-tight sm:leading-relaxed">
+                  To deliver real impact, we limit ourselves to one or two projects at a time. This allows us to work closely with clients and maintain a quality-first mindset.
+                </p>
+              </div>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          {/* What Quill HK Is */}
-          <div className="p-4 sm:p-6 lg:p-8">
-            <div ref={leftCardTitleAnimation.ref} className={leftCardTitleAnimation.className}>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1">
-                What Quill HK <span className="text-gradient">Is</span>:
-              </h3>
-              <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
-            </div>
-            <div className="space-y-3 sm:space-y-4">
-              <div ref={leftLine1Animation.ref} className={leftLine1Animation.className}>
-                <div className="flex items-start gap-3">
-                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground text-sm sm:text-base">A unique combo of software and 1:1 personalised mentoring.</span>
-                </div>
-              </div>
-              <div ref={leftLine2Animation.ref} className={leftLine2Animation.className}>
-                <div className="flex items-start gap-3">
-                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground text-sm sm:text-base">A WhatsApp content agent that turns ideas into posts.</span>
-                </div>
-              </div>
-              <div ref={leftLine3Animation.ref} className={leftLine3Animation.className}>
-                <div className="flex items-start gap-3">
-                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground text-sm sm:text-base">A 1:1 mentoring program for your growth goals.</span>
-                </div>
-              </div>
-              <div ref={leftLine4Animation.ref} className={leftLine4Animation.className}>
-                <div className="flex items-start gap-3">
-                  <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground text-sm sm:text-base">The solution for your pipeline and hiring needs.</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="relative max-w-6xl mx-auto">
+          {/* Timeline line - positioned to run through center of dots with flicker effect */}
+          <div className="hidden md:block absolute left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20 animate-pulse" style={{top: 'calc(-0.5rem + 0.4375rem)'}}></div>
           
-          {/* What Quill HK Is Not */}
-          <div className="p-4 sm:p-6 lg:p-8">
-            <div ref={rightCardTitleAnimation.ref} className={rightCardTitleAnimation.className}>
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-1">
-                What Quill HK <span className="text-gradient">Is Not</span>:
-              </h3>
-              <div className="w-full h-px bg-gray-100 mb-4 sm:mb-6"></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            {/* Step 1: Spot the problem */}
+            <div className="p-3 sm:p-4 lg:p-6 relative">
+              {/* Timeline dot */}
+              <div className="hidden md:block absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10 animate-dot-flicker" style={{ animationDelay: '0s' }}></div>
+              
+                  <div ref={leftCardTitleAnimation.ref} className={leftCardTitleAnimation.className}>
+                    <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-foreground mb-1 sm:mb-3 text-center font-ultra-thick">
+                      Scope the<br className="hidden md:block" /> <span className="text-gradient">Problem</span>
+                    </h3>
+                  </div>
+                  <div ref={leftLine1Animation.ref} className={leftLine1Animation.className}>
+                    <p className="text-foreground text-xs sm:text-sm text-center leading-tight sm:leading-relaxed">
+                      Identify your operational bottlenecks, design a smart solution, pick the best technology to build it.
+                    </p>
+                  </div>
             </div>
-            <div className="space-y-3 sm:space-y-4">
-              <div ref={rightLine1Animation.ref} className={rightLine1Animation.className}>
-                <div className="flex items-start gap-3">
-                  <X className="w-4 h-4 sm:w-5 sm:h-5 text-destructive mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground text-sm sm:text-base">AI ghostwriting that hurts your brand.</span>
-                </div>
-              </div>
-              <div ref={rightLine2Animation.ref} className={rightLine2Animation.className}>
-                <div className="flex items-start gap-3">
-                  <X className="w-4 h-4 sm:w-5 sm:h-5 text-destructive mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground text-sm sm:text-base">An expensive ghostwriter that you have to manage.</span>
-                </div>
-              </div>
-              <div ref={rightLine3Animation.ref} className={rightLine3Animation.className}>
-                <div className="flex items-start gap-3">
-                  <X className="w-4 h-4 sm:w-5 sm:h-5 text-destructive mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground text-sm sm:text-base">Generic LinkedIn coaching you can find online.</span>
-                </div>
-              </div>
-              <div ref={rightLine4Animation.ref} className={rightLine4Animation.className}>
-                <div className="flex items-start gap-3">
-                  <X className="w-4 h-4 sm:w-5 sm:h-5 text-destructive mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground text-sm sm:text-base">Just another AI tool without strategy or direction.</span>
-                </div>
-              </div>
+            
+            {/* Step 2: Build the solution */}
+            <div className="p-3 sm:p-4 lg:p-6 relative">
+              {/* Timeline dot */}
+              <div className="hidden md:block absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10 animate-dot-flicker" style={{ animationDelay: '1s' }}></div>
+              
+                  <div ref={rightCardTitleAnimation.ref} className={rightCardTitleAnimation.className}>
+                    <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-foreground mb-1 sm:mb-3 text-center font-ultra-thick">
+                      Build the<br className="hidden md:block" /> <span className="text-gradient">Solution</span>
+                    </h3>
+                  </div>
+                  <div ref={leftLine2Animation.ref} className={leftLine2Animation.className}>
+                    <p className="text-foreground text-xs sm:text-sm text-center leading-tight sm:leading-relaxed">
+                      AI-enhanced development of robust and effective solutions in any tech stack your team needs.
+                    </p>
+                  </div>
+            </div>
+            
+            {/* Step 3: Deploy & Empower */}
+            <div className="p-3 sm:p-4 lg:p-6 relative">
+              {/* Timeline dot */}
+              <div className="hidden md:block absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10 animate-dot-flicker" style={{ animationDelay: '2s' }}></div>
+              
+                  <div ref={leftLine3Animation.ref} className={leftLine3Animation.className}>
+                    <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-foreground mb-1 sm:mb-3 text-center font-ultra-thick">
+                      Deploy &<br className="hidden md:block" /> <span className="text-gradient">Empower</span>
+                    </h3>
+                  </div>
+                  <div ref={leftLine4Animation.ref} className={leftLine4Animation.className}>
+                    <p className="text-foreground text-xs sm:text-sm text-center leading-tight sm:leading-relaxed">
+                      Ship and iterate until results are undeniable. Transfer knowledge to empower your team.
+                    </p>
+                  </div>
             </div>
           </div>
         </div>

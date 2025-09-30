@@ -2,7 +2,6 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useEffect, useState } from "react";
 import dittoLogo from "@/assets/ditto logo.webp";
 import marsshotLogo from "@/assets/marsshot.png";
-import n8nLogo from "@/assets/n8n logo.png";
 import equalFoodLogo from "@/assets/perfil_equal_food-01-removebg-preview_1000x1000.webp";
 import wwfLogo from "@/assets/wwf-logo.png";
 import { FloatingLinkedInLogos } from "@/components/FloatingLinkedInLogos";
@@ -24,10 +23,6 @@ const defaultBrands: Brand[] = [
   { 
     name: "Marsshot", 
     logoSrc: marsshotLogo 
-  },
-  { 
-    name: "n8n", 
-    logoSrc: n8nLogo 
   },
   { 
     name: "Equal Food", 
