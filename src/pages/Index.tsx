@@ -23,14 +23,14 @@ const Index = () => {
         <WhatIs />
       </div>
       
-      {/* Projects Section */}
-      <div className="scroll-snap-section">
-        <Projects />
-      </div>
-      
       {/* Results Section */}
       <div className="scroll-snap-section">
         <Results />
+      </div>
+      
+      {/* Projects Section */}
+      <div className="scroll-snap-section">
+        <Projects />
       </div>
       
       {/* Testimonials Section */}

@@ -43,7 +43,7 @@ export const Results = () => {
         <div className="text-center mb-6 sm:mb-8 lg:mb-12 w-full max-w-7xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 sm:mb-4 font-ultra-thick">
-              Real results for <span className="text-gradient">your business</span>
+              Real impact on <span className="text-gradient">your business</span>
             </h2>
           </div>
           <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
