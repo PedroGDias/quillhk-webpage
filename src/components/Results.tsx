@@ -33,12 +33,12 @@ export const Results = () => {
   ];
 
   return (
-    <section className="h-full w-full relative overflow-y-auto flex flex-col justify-center py-4 sm:p-4">
+    <section className="h-full w-full relative overflow-y-auto overflow-x-hidden flex flex-col justify-center py-4 sm:p-4">
       {/* Subtle animated geometric shapes - smaller and at edges on mobile */}
       <div className="absolute top-1/4 left-1 sm:left-16 w-10 h-10 sm:w-32 sm:h-32 border-2 border-primary/20 rounded-full animate-slow-pulse" style={{ animationDuration: '17s' }}></div>
       <div className="absolute bottom-1/4 right-1 sm:right-20 w-8 h-8 sm:w-24 sm:h-24 border-2 border-primary/20 rounded-lg rotate-12 animate-slow-spin" style={{ animationDuration: '21s' }}></div>
       
-      <div className="container mx-auto sm:px-8 lg:px-16 relative h-full flex flex-col justify-center">
+      <div className="container mx-auto sm:px-8 lg:px-16 relative h-full flex flex-col justify-center overflow-x-hidden">
         {/* Mobile: Compact layout */}
         <div className="sm:hidden px-4">
           <div className="text-center mb-3">

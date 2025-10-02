@@ -41,7 +41,7 @@ export const Hero = () => {
         <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
           <div className="flex flex-col items-center text-center max-w-7xl mx-auto">
             <div ref={titleAnimation.ref} className={`${titleAnimation.className} mt-24 sm:mt-28 lg:mt-32`}>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight" style={{ fontFamily: "'Ubuntu', sans-serif", fontWeight: 700 }}>
+        <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-none sm:leading-tight tracking-tight" style={{ fontFamily: "'Ubuntu', sans-serif", fontWeight: 800 }}>
           Making <span className="text-gradient">process automation</span>{" "}
           part of your <span className="text-gradient">company DNA</span>
         </h1>
@@ -72,7 +72,7 @@ export const Hero = () => {
             </div>
             
             {/* Tech Logos Animation */}
-            <div ref={logoAnimation.ref} className={`${logoAnimation.className} flex flex-col items-center mt-32 sm:mt-40 lg:mt-48 mb-8`}>
+            <div ref={logoAnimation.ref} className={`${logoAnimation.className} flex flex-col items-center mt-16 sm:mt-32 lg:mt-40 mb-8`}>
               <div className="text-xs text-muted-foreground mb-1">Powered by</div>
               <div className="relative w-24 h-8 flex items-center justify-center">
                 <div className={`${isAnimating ? 'animate-logo-disappear' : 'animate-logo-appear'}`}>

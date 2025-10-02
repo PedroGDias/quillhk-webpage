@@ -12,13 +12,13 @@ export const FinalCta = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="h-full w-full relative overflow-y-auto flex flex-col justify-center pt-4 sm:pt-4">
+    <section className="h-full w-full relative overflow-y-auto flex flex-col">
       {/* Subtle animated geometric shapes */}
       <div className="absolute top-1/3 right-1 sm:right-20 w-10 h-10 sm:w-28 sm:h-28 border-2 border-primary/20 rounded-lg rotate-45 animate-slow-float" style={{ animationDuration: '18s' }}></div>
       <div className="absolute bottom-1/4 left-1 sm:left-24 w-12 h-12 sm:w-36 sm:h-36 border-2 border-primary/20 rounded-full animate-slow-pulse" style={{ animationDuration: '16s' }}></div>
       
       {/* CTA Content */}
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center py-8">
         <div className="container mx-auto sm:px-8 lg:px-16 relative">
           <div className="text-center space-y-6 sm:space-y-8 max-w-7xl mx-auto px-4 sm:px-0">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
@@ -89,7 +89,7 @@ export const FinalCta = () => {
       </div>
 
       {/* Footer */}
-      <footer ref={footerAnimation.ref} className={`${footerAnimation.className} mt-auto`}>
+      <footer ref={footerAnimation.ref} className={`${footerAnimation.className} mt-auto pb-2`}>
         <div className="border-t border-foreground/5">
           <div className="container mx-auto px-4 sm:px-8 lg:px-16 py-2 sm:py-3">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
