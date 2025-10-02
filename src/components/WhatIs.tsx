@@ -30,7 +30,7 @@ export const WhatIs = () => {
       <div className="absolute top-16 left-1 sm:left-20 w-10 h-10 sm:w-36 sm:h-36 border-2 border-primary/20 rounded-lg -rotate-12 animate-slow-float" style={{ animationDuration: '19s' }}></div>
       <div className="absolute bottom-20 right-24 w-20 h-20 border-2 border-primary/20 rounded-full animate-slow-pulse" style={{ animationDuration: '14s' }}></div>
       
-      <div className="container mx-auto sm:px-8 lg:px-16 relative">
+      <div className="container mx-auto sm:px-8 lg:px-16 relative -mt-8 sm:mt-0">
         <div className="text-center mb-4 sm:mb-16 w-full max-w-7xl mx-auto px-4 sm:px-0">
               <div ref={titleAnimation.ref} className={titleAnimation.className}>
                 <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-4 font-ultra-thick">

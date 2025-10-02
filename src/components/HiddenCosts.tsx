@@ -42,7 +42,7 @@ export const HiddenCosts = () => {
         {/* Mobile: Compact layout */}
         <div className="sm:hidden px-4">
           <div className="text-center mb-3">
-            <h2 className="text-4xl font-bold text-foreground mb-2 font-ultra-thick leading-tight">
+            <h2 className="text-4xl font-bold text-foreground mb-2 font-ultra-thick leading-none sm:leading-tight">
               Operational inefficiencies are <span className="text-gradient">your hidden costs</span>
             </h2>
             <p className="text-xs text-muted-foreground leading-tight px-2">
