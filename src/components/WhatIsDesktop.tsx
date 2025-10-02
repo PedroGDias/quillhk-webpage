@@ -3,20 +3,24 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { FloatingLinkedInLogos } from "@/components/FloatingLinkedInLogos";
 
 export const WhatIsDesktop = () => {
-  const leftCardTitleAnimation = useScrollAnimation({ delay: 250 });
-  const rightCardTitleAnimation = useScrollAnimation({ delay: 350 });
+  // Step 1: Identify Inefficiencies
+  const step1TitleAnimation = useScrollAnimation({ delay: 250 });
+  const step1DescAnimation = useScrollAnimation({ delay: 350 });
   
-  // Individual line animations for left card
-  const leftLine1Animation = useScrollAnimation({ delay: 450 });
-  const leftLine2Animation = useScrollAnimation({ delay: 550 });
-  const leftLine3Animation = useScrollAnimation({ delay: 650 });
-  const leftLine4Animation = useScrollAnimation({ delay: 750 });
+  // Step 2: Implement Solutions
+  const step2TitleAnimation = useScrollAnimation({ delay: 500 });
+  const step2DescAnimation = useScrollAnimation({ delay: 600 });
   
-  // Individual line animations for right card
-  const rightLine1Animation = useScrollAnimation({ delay: 850 });
-  const rightLine2Animation = useScrollAnimation({ delay: 950 });
-  const rightLine3Animation = useScrollAnimation({ delay: 1050 });
-  const rightLine4Animation = useScrollAnimation({ delay: 1150 });
+  // Step 3: Deploy & Empower
+  const step3TitleAnimation = useScrollAnimation({ delay: 750 });
+  const step3DescAnimation = useScrollAnimation({ delay: 850 });
+  
+  // Step 4: Monitor & Support
+  const step4TitleAnimation = useScrollAnimation({ delay: 1000 });
+  const step4DescAnimation = useScrollAnimation({ delay: 1100 });
+  
+  // Bottom text
+  const bottomTextAnimation = useScrollAnimation({ delay: 1250 });
 
   return (
     <section className="h-full w-full relative overflow-y-auto flex flex-col justify-center p-4">
@@ -28,47 +32,68 @@ export const WhatIsDesktop = () => {
       <FloatingLinkedInLogos />
       
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          {/* Step 1: Spot the problem */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+          {/* Step 1: Identify Inefficiencies */}
           <div className="p-4 sm:p-6 lg:p-8">
-            <div ref={leftCardTitleAnimation.ref} className={leftCardTitleAnimation.className}>
+            <div ref={step1TitleAnimation.ref} className={step1TitleAnimation.className}>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center font-ultra-thick">
-                <span className="text-gradient">Spot the problem</span>
+                <span className="text-gradient">Identify Inefficiencies</span>
               </h3>
             </div>
-            <div ref={leftLine1Animation.ref} className={leftLine1Animation.className}>
+            <div ref={step1DescAnimation.ref} className={step1DescAnimation.className}>
               <p className="text-foreground text-sm sm:text-base text-center">
-                Identify your operational bottlenecks, design a smart solution, pick the best technology to build it.
+                Find bottlenecks and opportunities for improving efficiency, then draw an execution plan.
               </p>
             </div>
           </div>
           
-          {/* Step 2: Build the solution */}
+          {/* Step 2: Implement Solutions */}
           <div className="p-4 sm:p-6 lg:p-8">
-            <div ref={rightCardTitleAnimation.ref} className={rightCardTitleAnimation.className}>
+            <div ref={step2TitleAnimation.ref} className={step2TitleAnimation.className}>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center font-ultra-thick">
-                <span className="text-gradient">Build the solution</span>
+                <span className="text-gradient">Implement Solutions</span>
               </h3>
             </div>
-            <div ref={leftLine2Animation.ref} className={leftLine2Animation.className}>
+            <div ref={step2DescAnimation.ref} className={step2DescAnimation.className}>
               <p className="text-foreground text-sm sm:text-base text-center">
-                AI-enhanced development of robust and effective solutions in any tech stack your team needs.
+                Select the best tech, craft effective solutions, and deliver with AI-powered automation.
               </p>
             </div>
           </div>
           
           {/* Step 3: Deploy & Empower */}
           <div className="p-4 sm:p-6 lg:p-8">
-            <div ref={leftLine3Animation.ref} className={leftLine3Animation.className}>
+            <div ref={step3TitleAnimation.ref} className={step3TitleAnimation.className}>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center font-ultra-thick">
                 <span className="text-gradient">Deploy & Empower</span>
               </h3>
             </div>
-            <div ref={leftLine4Animation.ref} className={leftLine4Animation.className}>
+            <div ref={step3DescAnimation.ref} className={step3DescAnimation.className}>
               <p className="text-foreground text-sm sm:text-base text-center">
                 Ship, measure, and iterate until results are undeniable. Transfer knowledge to empower your team.
               </p>
             </div>
+          </div>
+          
+          {/* Step 4: Monitor & Support */}
+          <div className="p-4 sm:p-6 lg:p-8">
+            <div ref={step4TitleAnimation.ref} className={step4TitleAnimation.className}>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center font-ultra-thick">
+                <span className="text-gradient">Monitor & Support</span>
+              </h3>
+            </div>
+            <div ref={step4DescAnimation.ref} className={step4DescAnimation.className}>
+              <p className="text-foreground text-sm sm:text-base text-center">
+                Ongoing support for monitoring, fixes, and improvements to keep your solutions running smoothly.
+              </p>
+            </div>
+          </div>
+          
+          {/* Bottom text */}
+          <div ref={bottomTextAnimation.ref} className={`text-center mt-12 px-4 ${bottomTextAnimation.className}`}>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              From first insight to full implementation, <span className="text-gradient font-bold">we stay hands-on</span> to make sure<br className="hidden sm:block" /> improvements stick and deliver real impact.
+            </p>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ export const Header = () => {
   const buttonsAnimation = useScrollAnimation({ delay: 150 });
 
   return (
-    <header className="hidden sm:block w-full bg-white backdrop-blur sticky top-0 z-50 border-b border-foreground/5">
+    <header className="hidden sm:block w-full backdrop-blur sticky top-0 z-50 border-b border-foreground/5">
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 py-3 sm:py-4">
         <div className="flex items-center justify-center sm:justify-between">
           <div ref={logoAnimation.ref} className={logoAnimation.className}>
@@ -33,7 +33,7 @@ export const Header = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  Let's talk
+                  Book a call
                 </a>
               </Button>
             </div>

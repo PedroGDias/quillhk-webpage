@@ -12,15 +12,15 @@ export const FinalCta = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section className="h-full w-full relative overflow-y-auto flex flex-col justify-center p-4 bg-white">
+    <section className="h-full w-full relative overflow-y-auto flex flex-col justify-center pt-4 sm:pt-4">
       {/* Subtle animated geometric shapes */}
-      <div className="absolute top-1/3 right-20 w-28 h-28 border-2 border-primary/20 rounded-lg rotate-45 animate-slow-float" style={{ animationDuration: '18s' }}></div>
-      <div className="absolute bottom-1/4 left-24 w-36 h-36 border-2 border-primary/20 rounded-full animate-slow-pulse" style={{ animationDuration: '16s' }}></div>
+      <div className="absolute top-1/3 right-1 sm:right-20 w-10 h-10 sm:w-28 sm:h-28 border-2 border-primary/20 rounded-lg rotate-45 animate-slow-float" style={{ animationDuration: '18s' }}></div>
+      <div className="absolute bottom-1/4 left-1 sm:left-24 w-12 h-12 sm:w-36 sm:h-36 border-2 border-primary/20 rounded-full animate-slow-pulse" style={{ animationDuration: '16s' }}></div>
       
       {/* CTA Content */}
       <div className="flex-1 flex items-center justify-center">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
-          <div className="text-center space-y-6 sm:space-y-8 max-w-7xl mx-auto">
+        <div className="container mx-auto sm:px-8 lg:px-16 relative">
+          <div className="text-center space-y-6 sm:space-y-8 max-w-7xl mx-auto px-4 sm:px-0">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-ultra-thick">
                 What's the problem you're{" "}
@@ -49,7 +49,7 @@ export const FinalCta = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
-                    Let's talk
+                    Book a call
                   </a>
                 </Button>
                 
@@ -60,7 +60,10 @@ export const FinalCta = () => {
                     rel="noopener noreferrer"
                     aria-label="Email us"
                     className="hover:opacity-80 transition-opacity"
-                    style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' }}
+                    style={{ 
+                      filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))',
+                      animation: 'subtle-rotate 0.8s ease-in-out infinite'
+                    }}
                   >
                     <Mail className="w-6 h-6 text-primary" strokeWidth={2} />
                   </a>
@@ -71,7 +74,10 @@ export const FinalCta = () => {
                     rel="noopener noreferrer"
                     aria-label="WhatsApp us"
                     className="hover:opacity-80 transition-opacity"
-                    style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' }}
+                    style={{ 
+                      filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))',
+                      animation: 'subtle-rotate-reverse 0.8s ease-in-out infinite'
+                    }}
                   >
                     <MessageCircle className="w-6 h-6 text-primary" strokeWidth={2} />
                   </a>
@@ -83,8 +89,8 @@ export const FinalCta = () => {
       </div>
 
       {/* Footer */}
-      <footer ref={footerAnimation.ref} className={footerAnimation.className}>
-        <div className="bg-background/50 border-t border-foreground/5">
+      <footer ref={footerAnimation.ref} className={`${footerAnimation.className} mt-auto`}>
+        <div className="border-t border-foreground/5">
           <div className="container mx-auto px-4 sm:px-8 lg:px-16 py-2 sm:py-3">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
               <div className="flex items-center gap-1">

@@ -87,11 +87,58 @@ export default {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-100%)" },
         },
+        "logo-appear": {
+          "0%": { 
+            opacity: "0", 
+            transform: "scale(0.3) rotateY(90deg)",
+            filter: "blur(10px)"
+          },
+          "50%": { 
+            opacity: "0.7", 
+            transform: "scale(1.1) rotateY(0deg)",
+            filter: "blur(2px)"
+          },
+          "100%": { 
+            opacity: "1", 
+            transform: "scale(1) rotateY(0deg)",
+            filter: "blur(0px)"
+          },
+        },
+        "logo-disappear": {
+          "0%": { 
+            opacity: "1", 
+            transform: "scale(1) rotateY(0deg)",
+            filter: "blur(0px)"
+          },
+          "50%": { 
+            opacity: "0.3", 
+            transform: "scale(0.8) rotateY(-90deg)",
+            filter: "blur(5px)"
+          },
+          "100%": { 
+            opacity: "0", 
+            transform: "scale(0.3) rotateY(-90deg)",
+            filter: "blur(10px)"
+          },
+        },
+        "tech-glow": {
+          "0%, 100%": { 
+            boxShadow: "0 0 20px hsl(12 100% 50% / 0.3)",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "0 0 40px hsl(12 100% 50% / 0.6), 0 0 60px hsl(12 100% 50% / 0.4)",
+            transform: "scale(1.05)"
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "marquee": "marquee 25s linear infinite",
+        "logo-appear": "logo-appear 0.6s ease-out",
+        "logo-disappear": "logo-disappear 0.3s ease-in",
+        "tech-glow": "tech-glow 3s ease-in-out infinite",
       },
     },
   },

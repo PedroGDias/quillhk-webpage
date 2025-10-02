@@ -154,9 +154,14 @@ export const Testimonials = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselRef2 = useRef<HTMLDivElement>(null);
 
   // Duplicate testimonials many times for truly seamless infinite scroll
   const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials, ...testimonials, ...testimonials];
+  
+  // Split testimonials for 2 rows on mobile - first half and second half scrolling opposite directions
+  const firstHalfTestimonials = [...testimonials.slice(0, Math.ceil(testimonials.length / 2)), ...testimonials.slice(0, Math.ceil(testimonials.length / 2)), ...testimonials.slice(0, Math.ceil(testimonials.length / 2))];
+  const secondHalfTestimonials = [...testimonials.slice(Math.ceil(testimonials.length / 2)), ...testimonials.slice(Math.ceil(testimonials.length / 2)), ...testimonials.slice(Math.ceil(testimonials.length / 2))];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -182,78 +187,125 @@ export const Testimonials = () => {
   }, [duplicatedTestimonials]);
 
   return (
-    <section className="h-full w-full relative overflow-y-auto flex flex-col justify-center p-4 bg-white">
-      {/* Subtle animated geometric shapes */}
-      <div className="absolute top-20 right-12 w-40 h-40 border-2 border-primary/20 rounded-full animate-slow-pulse" style={{ animationDuration: '16s' }}></div>
-      <div className="absolute bottom-24 left-16 w-28 h-28 border-2 border-primary/20 rounded-lg rotate-45 animate-slow-spin" style={{ animationDuration: '22s' }}></div>
+    <section className="h-full w-full relative overflow-y-auto flex flex-col justify-center py-4">
+      {/* Subtle animated geometric shapes - smaller and at edges on mobile */}
+      <div className="absolute top-20 right-1 sm:right-12 w-12 h-12 sm:w-40 sm:h-40 border-2 border-primary/20 rounded-full animate-slow-pulse" style={{ animationDuration: '16s' }}></div>
+      <div className="absolute bottom-4 left-1 sm:bottom-24 sm:left-16 w-10 h-10 sm:w-28 sm:h-28 border-2 border-primary/20 rounded-lg rotate-45 animate-slow-spin" style={{ animationDuration: '22s' }}></div>
       
-      <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
+      <div className="container mx-auto sm:px-8 lg:px-16 relative">
         <div className="flex flex-col items-center w-full max-w-7xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 lg:mb-8 font-ultra-thick text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-4 lg:mb-8 font-ultra-thick text-center px-4 sm:px-0">
               Voices from{" "}
               <span className="text-gradient">clients and peers</span>
             </h2>
           </div>
           
-          <div ref={testimonialsAnimation.ref} className={`${testimonialsAnimation.className} mt-6 sm:mt-0`}>
-            {/* Mobile: Carousel with 1 visible item */}
-            <div 
-              ref={carouselRef}
-              className="sm:hidden overflow-x-auto overflow-y-hidden max-w-sm mx-auto scrollbar-hide h-[420px]"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
+          <div ref={testimonialsAnimation.ref} className={`${testimonialsAnimation.className} w-full`}>
+            {/* Mobile: 2 Rows of Carousel with half-height cards */}
+            <div className="sm:hidden pb-16 pt-2 -mx-4 sm:mx-0">
+              {/* First Row - scrolling right */}
               <div 
-                className={`flex gap-6 ${
-                  isHovered ? 'pause' : 'animate-scroll-mobile-fast'
-                }`}
-                style={{ minWidth: 'max-content' }}
+                ref={carouselRef}
+                className="overflow-x-auto overflow-y-hidden scrollbar-hide pb-6"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
-                {duplicatedTestimonials.map((testimonial, index) => {
-                  const testimonialAnimation = useScrollAnimation({ delay: 200 + (index * 100) });
-                  return (
-                    <div 
-                      key={`mobile-${testimonial.author}-${index}`}
-                      ref={testimonialAnimation.ref} 
-                      className={testimonialAnimation.className}
-                      data-index={index}
-                    >
-                      <div className="testimonial-card flex-shrink-0 w-80 h-96 bg-background/80 backdrop-blur-sm border border-border/50 rounded-xl p-6 pb-8 shadow-lg flex flex-col">
-                        <div className="flex-1 flex flex-col justify-center text-center">
-                          <blockquote className="text-xs text-foreground italic leading-relaxed mb-6">
-                            "{testimonial.quote}"
-                          </blockquote>
-                        </div>
-                        <div className="flex items-end gap-3 text-left">
-                          <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 flex-shrink-0">
-                            <img 
-                              src={testimonial.image} 
-                              alt={`${testimonial.author} photo`}
-                              className="w-full h-full object-cover"
-                            />
+                <div 
+                  className={`flex gap-3 ${
+                    isHovered ? 'pause' : 'animate-scroll-mobile-fast'
+                  }`}
+                  style={{ minWidth: 'max-content', paddingLeft: '0' }}
+                >
+                  {firstHalfTestimonials.map((testimonial, index) => {
+                    return (
+                      <div 
+                        key={`mobile-row1-${testimonial.author}-${index}`}
+                        data-index={index}
+                      >
+                        <div className="testimonial-card flex-shrink-0 w-64 h-44 bg-background/80 backdrop-blur-sm border border-border/50 rounded-lg p-3 shadow-lg flex flex-col">
+                          <div className="flex-1 flex flex-col justify-center">
+                            <blockquote className="text-[10px] text-foreground italic leading-snug mb-2 line-clamp-4">
+                              "{testimonial.quote}"
+                            </blockquote>
                           </div>
-                          <div className="space-y-0">
-                            <h3 className="font-bold text-foreground text-sm">
-                              {testimonial.author}
-                            </h3>
-                            <p className="text-[10px] text-muted-foreground leading-tight">
-                              {testimonial.role}
-                            </p>
-                            <p className="text-[10px] text-muted-foreground leading-tight">
-                              {testimonial.company}
-                            </p>
+                          <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-full overflow-hidden border border-primary/20 flex-shrink-0">
+                              <img 
+                                src={testimonial.image} 
+                                alt={`${testimonial.author} photo`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="space-y-0 min-w-0">
+                              <h3 className="font-bold text-foreground text-[11px] truncate">
+                                {testimonial.author}
+                              </h3>
+                              <p className="text-[9px] text-muted-foreground leading-tight truncate">
+                                {testimonial.role}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Second Row - scrolling left (reverse) */}
+              <div 
+                ref={carouselRef2}
+                className="overflow-x-auto overflow-y-hidden scrollbar-hide pb-6 -mt-4"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                <div 
+                  className={`flex flex-row-reverse gap-3 ${
+                    isHovered ? 'pause' : 'animate-scroll-mobile-fast'
+                  }`}
+                  style={{ minWidth: 'max-content', paddingRight: '0' }}
+                >
+                  {secondHalfTestimonials.map((testimonial, index) => {
+                    return (
+                      <div 
+                        key={`mobile-row2-${testimonial.author}-${index}`}
+                        data-index={index + firstHalfTestimonials.length}
+                      >
+                        <div className="testimonial-card flex-shrink-0 w-64 h-44 bg-background/80 backdrop-blur-sm border border-border/50 rounded-lg p-3 shadow-lg flex flex-col">
+                          <div className="flex-1 flex flex-col justify-center">
+                            <blockquote className="text-[10px] text-foreground italic leading-snug mb-2 line-clamp-4">
+                              "{testimonial.quote}"
+                            </blockquote>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-full overflow-hidden border border-primary/20 flex-shrink-0">
+                              <img 
+                                src={testimonial.image} 
+                                alt={`${testimonial.author} photo`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div className="space-y-0 min-w-0">
+                              <h3 className="font-bold text-foreground text-[11px] truncate">
+                                {testimonial.author}
+                              </h3>
+                              <p className="text-[9px] text-muted-foreground leading-tight truncate">
+                                {testimonial.role}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            {/* Desktop: Moving carousel */}
+            {/* Desktop: Moving carousel (unchanged) */}
             <div 
               ref={carouselRef}
               className="hidden sm:block overflow-x-auto overflow-y-hidden max-w-6xl mx-auto scrollbar-hide h-[340px]"

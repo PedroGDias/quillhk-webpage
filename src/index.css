@@ -116,6 +116,20 @@ All colors MUST be HSL.
     font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
     letter-spacing: -0.01em;
+    /* Corner orange gradients */
+    background: 
+      radial-gradient(ellipse 400px 300px at top left, hsl(12 100% 96%) 0%, transparent 50%),
+      radial-gradient(ellipse 400px 300px at bottom right, hsl(12 100% 96%) 0%, transparent 50%),
+      hsl(0 0% 100%);
+  }
+  
+  @media (min-width: 640px) {
+    body {
+      background: 
+        radial-gradient(ellipse 800px 600px at top left, hsl(12 100% 96%) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 600px at bottom right, hsl(12 100% 96%) 0%, transparent 50%),
+        hsl(0 0% 100%);
+    }
   }
   
   p {
@@ -165,6 +179,10 @@ All colors MUST be HSL.
   
   .animate-scroll-mobile-fast {
     animation: scroll-mobile 60s linear infinite;
+  }
+  
+  .animate-scroll-mobile-fast-reverse {
+    animation: scroll-mobile-reverse 60s linear infinite;
   }
   
   .animate-slow-spin {
@@ -236,6 +254,8 @@ All colors MUST be HSL.
     /* Fix glyph overhang clipping */
     overflow: visible !important;
     padding-right: 0.08em !important;
+    padding-bottom: 0.08em !important;
+    display: inline-block;
   }
 
   /* Scroll snap behavior */
@@ -285,6 +305,13 @@ All colors MUST be HSL.
     font-size: 1.5rem !important;
   }
 
+  /* Mobile fade-in animations */
+  @media (max-width: 640px) {
+    .scroll-snap-section {
+      animation: mobile-section-fade-in 0.6s ease-out;
+    }
+  }
+
   /* Mobile modal improvements */
   @media (max-width: 640px) {
     /* Prevent zoom on iOS when focusing inputs */
@@ -320,6 +347,35 @@ All colors MUST be HSL.
   }
   100% {
     transform: translateX(-20%);
+  }
+}
+
+@keyframes scroll-mobile-reverse {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes mobile-section-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-card-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -405,5 +461,80 @@ All colors MUST be HSL.
   50% {
     opacity: 1;
     transform: scale(1.2);
+  }
+}
+
+@keyframes subtle-rotate {
+  0%, 100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes subtle-rotate-reverse {
+  0%, 100% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Futuristic logo animations */
+@keyframes logo-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotateY(90deg);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1) rotateY(0deg);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes logo-disappear {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8) rotateY(-90deg);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotateY(-90deg);
+    filter: blur(10px);
+  }
+}
+
+@keyframes tech-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(12 100% 50% / 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(12 100% 50% / 0.6), 0 0 60px hsl(12 100% 50% / 0.4);
+    transform: scale(1.05);
   }
 }

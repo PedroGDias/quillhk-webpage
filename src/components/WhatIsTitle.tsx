@@ -4,6 +4,7 @@ import { FloatingLinkedInLogos } from "@/components/FloatingLinkedInLogos";
 export const WhatIsTitle = () => {
   const titleAnimation = useScrollAnimation({ delay: 150 });
   const subtitleAnimation = useScrollAnimation({ delay: 350 });
+  const bottomTextAnimation = useScrollAnimation({ delay: 550 });
 
   return (
     <section className="h-full w-full relative overflow-y-auto flex flex-col justify-center p-4">
@@ -18,12 +19,19 @@ export const WhatIsTitle = () => {
         <div className="text-center w-full max-w-7xl mx-auto">
           <div ref={titleAnimation.ref} className={titleAnimation.className}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 font-ultra-thick">
-              <span className="text-gradient">How we work</span>
+              <span className="text-gradient">How we can help</span>
             </h2>
           </div>
           <div ref={subtitleAnimation.ref} className={subtitleAnimation.className}>
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              To deliver real impact, we limit ourselves to one or two projects at a time. This allows us to work closely with clients and maintain a quality-first mindset.
+              We uncover hidden inefficiencies, pinpoint opportunities for improvement, and apply AI and automation to design elegant, practical solutions.
+            </p>
+          </div>
+          
+          {/* Bottom text */}
+          <div ref={bottomTextAnimation.ref} className={`text-center mt-12 ${bottomTextAnimation.className}`}>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+              From first insight to full implementation, <span className="text-gradient font-bold">we stay hands-on</span> to make sure<br className="hidden sm:block" /> improvements stick and deliver real impact.
             </p>
           </div>
         </div>
