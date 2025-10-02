@@ -22,7 +22,7 @@ export const FinalCta = () => {
         <div className="container mx-auto sm:px-8 lg:px-16 relative">
           <div className="text-center space-y-6 sm:space-y-8 max-w-7xl mx-auto px-4 sm:px-0">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-ultra-thick">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-none sm:leading-tight font-ultra-thick">
                 What's the problem you're{" "}
                 <br className="hidden md:block" />
                 <span className="text-gradient">

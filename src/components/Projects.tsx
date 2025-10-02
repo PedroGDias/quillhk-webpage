@@ -198,7 +198,7 @@ export const Projects = () => {
         <div className="container mx-auto sm:px-8 lg:px-16 relative">
           <div className="text-center mb-4 sm:mb-6 md:mb-8 w-full max-w-7xl mx-auto px-4 sm:px-0">
             <div ref={titleAnimation.ref} className={titleAnimation.className}>
-              <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3 font-ultra-thick">
+              <h2 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3 font-ultra-thick leading-none sm:leading-normal">
                 Snapshots of <span className="text-gradient">real solutions</span>
               </h2>
             </div>

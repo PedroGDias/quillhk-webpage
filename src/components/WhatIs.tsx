@@ -33,7 +33,7 @@ export const WhatIs = () => {
       <div className="container mx-auto sm:px-8 lg:px-16 relative -mt-8 sm:mt-0">
         <div className="text-center mb-4 sm:mb-16 w-full max-w-7xl mx-auto px-4 sm:px-0">
               <div ref={titleAnimation.ref} className={titleAnimation.className}>
-                <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-4 font-ultra-thick">
+                <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-4 font-ultra-thick leading-none sm:leading-normal">
                   How we can <span className="text-gradient">help</span>
                 </h2>
               </div>
