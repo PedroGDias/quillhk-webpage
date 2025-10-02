@@ -41,7 +41,7 @@ export const Hero = () => {
         <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative">
           <div className="flex flex-col items-center text-center max-w-7xl mx-auto">
             <div ref={titleAnimation.ref} className={`${titleAnimation.className} mt-24 sm:mt-28 lg:mt-32`}>
-        <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-none sm:leading-tight tracking-tight" style={{ fontFamily: "'Ubuntu', sans-serif", fontWeight: 800 }}>
+        <h1 className="text-6xl sm:text-5xl md:text-6xl lg:text-7xl leading-none sm:leading-tight tracking-tight" style={{ fontFamily: "'Ubuntu', sans-serif", fontWeight: 800 }}>
           Making <span className="text-gradient">process automation</span>{" "}
           part of your <span className="text-gradient">company DNA</span>
         </h1>
