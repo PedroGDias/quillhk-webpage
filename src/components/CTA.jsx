@@ -24,9 +24,9 @@ export default function CTA() {
             rel="noopener noreferrer"
             className="btn btn-primary btn-primary-lg"
           >
-            Book a call — it's free
+            Let&apos;s talk
           </a>
-          <span className={styles.fine}>30 min · We come prepared · No obligation</span>
+          <span className={styles.fine}>30 min · Talk through pain points, inefficiencies &amp; costs</span>
         </div>
       </div>
     </section>

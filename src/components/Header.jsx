@@ -23,7 +23,7 @@ export default function Header() {
           rel="noopener noreferrer"
           className="btn btn-primary"
         >
-          Book a call
+          Let&apos;s talk
         </a>
       </nav>
     </header>

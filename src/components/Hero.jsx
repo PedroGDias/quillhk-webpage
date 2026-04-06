@@ -3,7 +3,7 @@ import styles from './Hero.module.css'
 
 const stats = [
   { val: '<3 mo',   label: 'ROI guarantee' },
-  { val: '10–30%',  label: 'of problem cost / month' },
+  { val: '70–90%',  label: 'immediate cost reduction' },
   { val: '0',       label: 'vendor lock-in' },
 ]
 
@@ -38,9 +38,9 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="btn btn-primary btn-primary-lg"
           >
-            Book a free audit call
+            Let&apos;s talk
           </a>
-          <span className={styles.actionTag}>No commitment · 30 min · We come prepared</span>
+          <span className={styles.actionTag}>30 min · Talk through pain points, inefficiencies &amp; costs</span>
         </div>
 
         <div ref={statsEl} className={`${styles.statsBar} reveal delay-4`}>
