@@ -1,17 +1,17 @@
 import styles from './Footer.module.css'
 
 export default function Footer() {
+  const year = new Date().getFullYear()
+
   return (
     <footer className={styles.footer}>
-      <a href="#" className={styles.logo}>
-        <div className={styles.logoMark} />
-        Quill HK
-      </a>
-      <div className={styles.links}>
-        <a href="mailto:pedrodias@quillhk.com" className={styles.link}>Contact</a>
-        <a href="https://calendar.app.google/ebLJgX97qppEVqW28" target="_blank" rel="noopener noreferrer" className={styles.link}>Book a call</a>
+      <div className={styles.meta}>
+        <div className={styles.inlineRow}>
+          <a href="/privacy.html" className={styles.link}>Privacy</a>
+          <a href="/terms.html" className={styles.link}>T&amp;C</a>
+          <span className={styles.link}>© {year} Quill HK</span>
+        </div>
       </div>
-      <span className={styles.copy}>© 2025 Quill HK</span>
     </footer>
   )
 }

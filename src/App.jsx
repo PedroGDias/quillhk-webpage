@@ -1,7 +1,6 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
 import HowItWorks from './components/HowItWorks'
-import TechAndAI from './components/TechAndAI'
 import Pricing from './components/Pricing'
 import Security from './components/Security'
 import ZeroRisk from './components/ZeroRisk'
@@ -15,9 +14,11 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <HowItWorks />
         <Pricing />
-        <TechAndAI />
+        <HowItWorks />
+        {/*
+          <TechAndAI />
+        */}
         <Security />
         <ZeroRisk />
         <Testimonials />
