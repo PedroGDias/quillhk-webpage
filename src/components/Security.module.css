@@ -1,0 +1,108 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 52px;
+  align-items: start;
+}
+
+.items { display: flex; flex-direction: column; }
+
+.item {
+  display: flex;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--c-border-dim);
+}
+.item:last-child { border-bottom: none; }
+
+.itemIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  color: var(--c-text-2);
+}
+.itemIcon svg { width: 15px; height: 15px; }
+
+.itemTitle { font-size: 14px; font-weight: 600; color: var(--c-text); margin-bottom: 4px; }
+.itemBody  { font-size: 13px; color: var(--c-text-3); line-height: 1.6; }
+
+/* Callout */
+.callout {
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.calloutHead {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--c-border);
+  background: var(--c-surface);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calloutDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--c-accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.calloutTag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-3);
+}
+
+.calloutBody {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--c-border-dim);
+  border-radius: 8px;
+}
+
+.optionDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.optionTitle { font-size: 13px; font-weight: 600; color: var(--c-text); margin-bottom: 3px; }
+.optionBody  { font-size: 12px; color: var(--c-text-3); line-height: 1.55; }
+
+.calloutNote {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-text-4);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+}

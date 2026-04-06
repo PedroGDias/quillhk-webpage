@@ -1,0 +1,107 @@
+.hero {
+  padding: clamp(72px, 9vw, 128px) var(--page-x) clamp(56px, 7vw, 96px);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 24px;
+}
+
+.eyebrowDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  animation: pulseDot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.h1 {
+  font-family: var(--font-display);
+  font-size: clamp(46px, 7.5vw, 90px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.94;
+  color: var(--c-text);
+  margin-bottom: 28px;
+}
+.h1 em { font-style: normal; color: var(--c-accent); }
+
+.sub {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--c-text-2);
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+}
+
+.actionTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-text-4);
+  letter-spacing: 0.04em;
+}
+
+/* Stats bar */
+.statsBar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stat {
+  background: var(--c-bg);
+  padding: 20px 24px;
+}
+
+.statVal {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  color: var(--c-accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--c-text-3);
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .statsBar { grid-template-columns: 1fr; }
+}

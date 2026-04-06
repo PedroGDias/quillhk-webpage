@@ -1,0 +1,42 @@
+.cta {
+  padding: var(--section-py) var(--page-x);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  color: var(--c-text);
+  margin-bottom: 20px;
+}
+.title em { font-style: normal; color: var(--c-accent); }
+
+.body {
+  font-size: 16px;
+  color: var(--c-text-3);
+  max-width: 480px;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.fine {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-text-4);
+  letter-spacing: 0.04em;
+}

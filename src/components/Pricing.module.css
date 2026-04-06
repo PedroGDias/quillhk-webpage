@@ -1,0 +1,195 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+  margin-top: 52px;
+}
+
+.card {
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHead {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardTitle { font-size: 13px; font-weight: 600; color: var(--c-text-2); }
+.cardTag   { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-text-4); }
+
+.cardBody { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+
+.mathRows { display: flex; flex-direction: column; gap: 14px; }
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.rowLabel { font-size: 13px; color: var(--c-text-3); flex: 1; }
+.rowVal   { font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--c-text); white-space: nowrap; }
+.accent   { color: var(--c-accent); }
+.green    { color: var(--c-live); }
+
+.divider { border: none; border-top: 1px solid var(--c-border-dim); }
+.dimRow { opacity: 0.55; }
+
+.note {
+  font-size: 12px;
+  color: var(--c-text-4);
+  line-height: 1.6;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+/* ROI */
+.roiCard {
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.roiLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-4);
+  margin-bottom: 20px;
+}
+
+.roiMonths { margin-bottom: 14px; }
+
+.barsRow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  height: 56px;
+}
+
+.labelsRow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.monthLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.bar { height: 100%; border-radius: 4px; }
+.red   { background: #fce8e2; border: 1px solid #f5c3b3; }
+.mixed { background: linear-gradient(to top, #d1f5e0 33%, #fce8e2 33%); border: 1px solid var(--c-border); }
+.green { background: #d1f5e0; border: 1px solid #a8e6bf; }
+
+.monthNum { font-family: var(--font-mono); font-size: 10px; color: var(--c-text-4); }
+.monthTag { font-size: 10px; font-weight: 600; color: var(--c-live); }
+
+.roiLegend {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--c-text-3);
+}
+
+.legendDot { width: 8px; height: 8px; border-radius: 2px; }
+
+.roiMeta { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.metaLabel { font-size: 12px; color: var(--c-text-3); }
+.metaVal   { font-family: var(--font-mono); font-size: 11px; color: var(--c-text-3); }
+
+.liveTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-live);
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background: var(--c-live);
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+
+.handover {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--c-border);
+}
+
+.handoverLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text-4);
+  margin-bottom: 8px;
+}
+
+.handoverBody {
+  font-size: 12px;
+  color: var(--c-text-3);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.handoverRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.handoverDesc {
+  font-size: 13px;
+  color: var(--c-text-3);
+}
+
+.handoverVal {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--c-text-3);
+  white-space: nowrap;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+}
