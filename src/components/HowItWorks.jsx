@@ -20,6 +20,12 @@ const steps = [
     body: 'We keep the solution running, improving, and up to date. You pay a monthly fee proportional to what the problem was costing you — so our incentive is always to keep delivering, not just to keep the contract.',
     badge: 'Pay for impact, not effort',
   },
+  {
+    num: 'Optional',
+    title: 'Handover (fully managed by your team)',
+    body: 'Want to fully own the solution? We can provide a complete handover at any point — from day one, or after months of us managing it — including the codebase, documentation, infrastructure setup, migration support, and handover sessions, so your team can run it end to end.',
+    badge: 'One-off handover fee',
+  },
 ]
 
 export default function HowItWorks() {
@@ -37,12 +43,12 @@ export default function HowItWorks() {
         <p className="section-body reveal delay-2" ref={body}>
           Three phases, end to end — from uncovering the problem to a live solution and ongoing maintenance. You own everything we build.
         </p>
+      </div>
 
-        <div className={styles.grid}>
-          {steps.map((s, i) => (
-            <Step key={s.num} step={s} delay={i + 1} />
-          ))}
-        </div>
+      <div className={styles.grid}>
+        {steps.map((s, i) => (
+          <Step key={s.num} step={s} delay={i + 1} />
+        ))}
       </div>
     </section>
   )
@@ -50,8 +56,12 @@ export default function HowItWorks() {
 
 function Step({ step, delay }) {
   const ref = useReveal()
+  const isOptional = step.num === 'Optional'
   return (
-    <div ref={ref} className={`${styles.step} reveal delay-${delay}`}>
+    <div
+      ref={ref}
+      className={`${styles.step} ${isOptional ? styles.stepOptional : ''} reveal delay-${delay}`}
+    >
       <div className={styles.stepNum}>{step.num}</div>
       <div className={styles.stepTitle}>{step.title}</div>
       <p className={styles.stepBody}>{step.body}</p>
