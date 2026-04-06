@@ -12,7 +12,7 @@ export default function CTA() {
       <div className={styles.inner}>
         <div className="section-label reveal" ref={label}>Ready?</div>
         <h2 className={`${styles.title} reveal delay-1`} ref={title}>
-          Start with a free<br /><em>audit call.</em>
+          Start with a quick<br /><em>conversation.</em>
         </h2>
         <p className={`${styles.body} reveal delay-2`} ref={body}>
           We'll map one of your biggest pain points, put a number on it, and show you exactly what a solution would look like and cost.

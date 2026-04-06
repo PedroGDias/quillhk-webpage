@@ -22,7 +22,7 @@ export default function Pricing() {
       <div className="container">
         <div className="section-label reveal" ref={label}>Pricing model</div>
         <h2 className="section-title reveal delay-1" ref={title}>
-          You pay according to<br /><em>what we save you.</em>
+          You pay according to<br /><em>what you get.</em>
         </h2>
         <p className="section-body reveal delay-2" ref={body}>
           No fixed retainers. The math is simple and always in your favour.
