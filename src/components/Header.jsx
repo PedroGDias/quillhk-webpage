@@ -5,8 +5,8 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <a href="#" className={styles.logo}>
-        <img src={logo} alt="Quill" className={styles.logoImg} />
-        <span className={styles.logoName}>Quill</span>
+        <img src={logo} alt="Quill HK" className={styles.logoImg} />
+        <span className={styles.logoName}>Quill HK</span>
       </a>
 
       <nav className={styles.nav}>
