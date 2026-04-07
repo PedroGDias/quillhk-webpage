@@ -2,6 +2,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import HowItWorks from './components/HowItWorks'
 import Pricing from './components/Pricing'
+import PricingCalculator from './components/PricingCalculator'
 import Security from './components/Security'
 import ZeroRisk from './components/ZeroRisk'
 import Testimonials from './components/Testimonials'
@@ -15,6 +16,7 @@ export default function App() {
       <main>
         <Hero />
         <Pricing />
+        <PricingCalculator />
         <HowItWorks />
         {/*
           <TechAndAI />

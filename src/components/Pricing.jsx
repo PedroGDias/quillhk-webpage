@@ -1,5 +1,16 @@
 import { useReveal } from '../hooks/useReveal'
+import {
+  formatAnnualSaveBand,
+  formatBreakevenRange,
+  formatMonthlyFeeBand,
+  formatMonthlySaveBand,
+  formatUsd,
+  pricingFromBaseline,
+} from '../lib/pricingMath'
 import styles from './Pricing.module.css'
+
+const EXAMPLE_BASELINE_MO = 1000
+const example = pricingFromBaseline(EXAMPLE_BASELINE_MO)
 
 const roiMonths = [
   { label: 'M1', type: 'red' },
@@ -25,25 +36,43 @@ export default function Pricing() {
           You pay according to<br /><em>what you get.</em>
         </h2>
         <p className="section-body reveal delay-2" ref={body}>
-          No fixed retainers. The math is simple and always in your favour.
+          No fixed retainers. Ongoing fees are typically {example.feePctLow}–{example.feePctHigh}% of the
+          agreed monthly baseline — set with you at the audit based on scope and complexity.
         </p>
 
         <div className={styles.layout}>
           <div ref={card} className={`${styles.card} reveal delay-1`}>
             <div className={styles.cardHead}>
-              <span className={styles.cardTitle}>Example: $2,000/mo problem or manual workaround</span>
+              <span className={styles.cardTitle}>
+                Example: {formatUsd(EXAMPLE_BASELINE_MO)}/mo problem or manual workaround
+              </span>
               <span className={styles.cardTag}>Illustrative</span>
             </div>
             <div className={styles.cardBody}>
               <div className={styles.mathRows}>
-                <Row label="What you pay today (problem cost and/or manual solution)" val="$2,000 / mo" />
+                <Row
+                  label="Current cost of your problem / manual solution"
+                  val={`${formatUsd(example.monthlyBaseline)} / mo`}
+                />
                 <hr className={styles.divider} />
-                <Row label="One-off mobilisation fee (2× monthly cost)" val="$4,000" accent />
-                <Row label="Monthly fee (25% of problem cost)" val="$500 / mo" accent />
+                <Row
+                  label="One-off mobilisation fee (2× monthly cost)"
+                  val={formatUsd(example.mobilisation)}
+                  accent
+                />
+                <Row
+                  label={`Monthly fee (${example.feePctLow}–${example.feePctHigh}% of baseline, case-dependent)`}
+                  val={formatMonthlyFeeBand(example)}
+                  accent
+                />
                 <hr className={styles.divider} />
-                <Row label="You save" val="$1,500 / mo" green />
-                <Row label="ROI breakeven" val="2.67 months" green />
-                <Row label="Net savings / year (after breakeven)" val="$18,000" green />
+                <Row label="You save" val={formatMonthlySaveBand(example)} green />
+                <Row
+                  label="ROI breakeven"
+                  val={formatBreakevenRange(example.breakevenMonthsLow, example.breakevenMonthsHigh)}
+                  green
+                />
+                <Row label="Net savings / year (after breakeven)" val={formatAnnualSaveBand(example)} green />
               </div>
               <p className={styles.note}>
                 Pricing is agreed upfront and stays fixed within the scope defined at the audit. If your usage or scale grows significantly beyond the original baseline, we renegotiate — fees always stay proportional to the impact we're delivering, never arbitrary.
@@ -99,7 +128,7 @@ export default function Pricing() {
               </p>
               <div className={styles.handoverRow}>
                 <span className={styles.handoverDesc}>One-off handover fee · 2× monthly problem cost</span>
-                <span className={styles.handoverVal}>$4,000</span>
+                <span className={styles.handoverVal}>{formatUsd(example.handoverFee)}</span>
               </div>
             </div>
           </div>

@@ -11,6 +11,7 @@ export default function Header() {
 
       <nav className={styles.nav}>
         <a href="#pricing" className={styles.navLink}>Pricing</a>
+        <a href="#estimate" className={styles.navLink}>Estimate</a>
         <a href="#how-it-works" className={styles.navLink}>How it works</a>
         {/*
           <a href="#tech" className={styles.navLink}>Tech &amp; AI</a>
