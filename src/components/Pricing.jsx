@@ -31,12 +31,12 @@ export default function Pricing() {
         <div className={styles.layout}>
           <div ref={card} className={`${styles.card} reveal delay-1`}>
             <div className={styles.cardHead}>
-              <span className={styles.cardTitle}>Example: $2,000/mo problem</span>
+              <span className={styles.cardTitle}>Example: $2,000/mo problem or manual workaround</span>
               <span className={styles.cardTag}>Illustrative</span>
             </div>
             <div className={styles.cardBody}>
               <div className={styles.mathRows}>
-                <Row label="Current cost of the problem" val="$2,000 / mo" />
+                <Row label="What you pay today (problem cost and/or manual solution)" val="$2,000 / mo" />
                 <hr className={styles.divider} />
                 <Row label="One-off mobilisation fee (2× monthly cost)" val="$4,000" accent />
                 <Row label="Monthly fee (25% of problem cost)" val="$500 / mo" accent />
